@@ -1,0 +1,49 @@
+<?php echo $this->doctype('XHTML1_STRICT'); ?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <?php echo $this->headTitle('Maitre-corbeaux.com')
+                    ->setSeparator(' - '); ?>
+
+    <?php echo $this->headScript(); ?>
+
+    <?php echo $this->headLink()
+                    ->appendStylesheet('/styles/print.css', 'print')
+                    ->appendStylesheet('/styles/screen.css', 'screen'); ?>
+
+    <?php echo $this->headMeta()
+                    ->appendHttpEquiv('Content-Type', 'text/html; charset=UTF-8')
+                    ->appendHttpEquiv('Content-Language', 'fr-FR')
+                    ->appendName('keywords', 'concepteur,développeur,senior,web,php,zend,framework,angers,ZCE')
+                    ->appendName('description', 'Lucas CORBEAUX, concepteur développeur Senior sur Angers et Zend Certified Engineer.'); ?>
+
+</head>
+<body>
+    <div id="header">
+        <h1 id="logo"><a href="<?php echo $this->url(array(), 'default', true); ?>" title="Page d'accueil">Maitre-<br/>corbeaux.com</a></h1>
+        <h2>Lucas CORBEAUX - Concepteur-Développeur senior sur Angers</h2>
+        <div class="subtitle">Et absolument pas webdesigner, comme vous pouvez le constater.</div>
+<?php echo $this->navigation()
+                ->menu()
+                ->setIndent(12); ?>
+
+    </div>
+    <div id="content">
+        <?php echo $this->layout()->content; ?>
+    </div>
+    <ul id="infos-right">
+        <li><h3>Informations sur le profil</h3></li>
+        <li>Lucas CORBEAUX</li>
+        <li>27 ans</li>
+        <li>Concepteur-Développeur senior sur Angers</li>
+        <li>Plus de 5 ans d'expérience en développement Web</li>
+        <li>
+            <a href="http://www.zend.com/en/yellow-pages#show-ClientCandidateID=ZEND010169"
+               title="Profil Zend Certified Engineer">Zend Certified Engineer PHP5 et Zend Framework</a>
+        </li>
+        <li>
+            <strong>Disponibilité :</strong> En poste au sein de la société
+            <a href="http://www.izeos.com" title="Portail de la société Izeos">Izeos</a>
+        </li>
+    </ul>
+</body>
+</html>

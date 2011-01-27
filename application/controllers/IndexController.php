@@ -1,18 +1,16 @@
 <?php
-
+/**
+ * Index Controller
+ */
 class IndexController extends Zend_Controller_Action
 {
-
-    public function init()
-    {
-        /* Initialize action controller here */
-    }
-
+    /**
+     * Display the home page
+     */
     public function indexAction()
     {
-        // action body
+	    $this->view
+             ->headTitle('Site personnel de Lucas Corbeaux développeur senior sur Angers', 'PREPEND');
     }
-
-
 }
 

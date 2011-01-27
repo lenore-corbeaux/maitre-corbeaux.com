@@ -1,0 +1,105 @@
+html {
+	font-size: 100%;
+}
+
+body {
+	background-color: black;
+	color: #18F018;
+	font-family: "Courier New", Courier, monospace;
+	font-size: 1em;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+a:hover {
+	color: black;
+	background-color: #18f018;
+}
+
+h1 {
+	font-size: 3em;
+}
+
+h2 {
+	font-size: 2em;
+	margin: 0 0 0 20px;
+}
+
+h3 {
+	font-size: 1.5em;
+	margin: 0 0 15px 0;
+}
+
+h4 {
+	font-size: 1.2em;
+	margin: 0 0 10px 0;
+}
+
+#logo {
+	float: left;
+	margin: 5px 25px 5px 0;
+	padding: 15px;
+	border: 2px #18f018 solid;
+}
+
+#header {
+	width: 100%;
+	float: left;
+	margin: 5px 5px 5px 0; 
+}
+
+#header .subtitle {
+	font-size: 1em;
+	font-style: italic;
+}
+
+#header ul.navigation {
+	margin: 10px 0 25px 0;
+	list-style-type: none;
+	border-bottom: 2px #18f018 solid;
+    float: right;
+    width: 100%;
+}
+
+#header ul.navigation li {
+	border: 2px #18f018 solid;
+	border-bottom: none;
+	padding: 5px 5px 0 5px; 
+	margin: 5px 5px 0 5px;
+    float: right;
+}
+
+p.terminal:before {
+	content: "guest@maitre-corbeaux.com:~$ ";
+	color: green;
+	font-size: 0.85em;
+}
+
+#content {
+	width: 70%;
+	clear: both;
+	float: left;
+	margin: 5px 25px 5px 5px;
+}
+
+#content p {
+    width: 100%;
+	text-align: justify;
+	margin: 0 0 5px 0;
+}
+
+ul#infos-right {
+    margin: 5px 10px 5px 5px;
+    padding: 0;
+    width: 25%;
+	list-style-type: none;
+	float: left;
+	text-align: justify;
+}
+
+ul#infos-right li {
+	margin-bottom: 4px;
+}
