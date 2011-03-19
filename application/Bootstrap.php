@@ -19,4 +19,17 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
             $log->setTimestampFormat($options['log']['timestampFormat']);
         }
     }
+
+    /**
+     * Initialize Google Analytics view helper
+     * 
+     * @return void
+     */
+    protected function _initGoogleAnalytics()
+    {
+        $this->bootstrap('view');
+        $view = $this->getResource('view');
+        $options = $this->getOption('googleAnalytics');
+        $view->googleAnalytics($options['accountId'], $options['mode']);
+    }
 }
