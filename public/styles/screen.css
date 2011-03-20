@@ -104,3 +104,59 @@ ul#infos-right {
 ul#infos-right li {
     margin-bottom: 4px;
 }
+/* Contact Form */
+dl.zend_form {
+    width: 850px;
+    font-size: 0.8em;
+}
+
+dl.zend_form dt {
+    float: left;
+    width: 250px;
+    clear: both;
+    margin: 5px;
+}
+
+dl.zend_form dd {
+    float: left;
+    width: 550px;
+    margin: 5px;
+}
+
+dl.zend_form dd input {
+    width: 100%;
+    height: 20px;
+}
+
+dl.zend_form dd textarea {
+    width: 100%;
+    height: 250px;
+}
+
+dl.zend_form dd#captcha-element {
+    width: 350px;
+}
+
+dl.zend_form dd#send-element {
+    width: 200px;
+}
+
+dl.zend_form input#send {
+    float: right;
+    width: 75px;
+    height: 25px;
+}
+
+dl.zend_form input#copy {
+    width: auto;
+}
+
+dl.zend_form dd#copy-element label {
+    float: left;
+    padding-top: 7px;
+}
+
+dl.zend_form dd#copy-element {
+    width: 100%;
+    padding-left: 255px;
+}
