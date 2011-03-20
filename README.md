@@ -8,4 +8,4 @@ The site is powered by Zend Framework and will be entirely open-source.
 Installation and requirements
 -----------------------------
 
-The project simply needs PHP 5.3 and the Zend Framework 1.11.2 to be in the PHP's include path or in the library dir.
+The project simply needs PHP 5.3 and the Zend Framework 1.11.4 to be in the PHP's include path or in the library dir.
