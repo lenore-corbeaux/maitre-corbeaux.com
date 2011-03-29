@@ -17,6 +17,12 @@ abstract class MaitreCorbeaux_Service_AbstractService
 
     /**
      *
+     * @var MaitreCorbeaux_Model_Mapper_AbstractMapper
+     */
+    protected  $_mapper;
+
+    /**
+     *
      * @return Zend_Application_Bootstrap_BootstrapAbstract
      */
     public function getBootstrap()
@@ -38,6 +44,30 @@ abstract class MaitreCorbeaux_Service_AbstractService
                                  $bootstrap)
     {
         $this->_bootstrap = $bootstrap;
+        return $this;
+    }
+
+    /**
+     * Always returns null
+     *
+     * This method is used as a Factory Method, so child class is
+     * responsible of the type of mapper to instantiate by default.
+     * 
+     * @return MaitreCorbeaux_Model_Mapper_AbstractMapper
+     */
+    public  function getMapper()
+    {
+        return null;
+    }
+
+    /**
+     *
+     * @param MaitreCorbeaux_Model_Mapper_Abstract $value
+     * @return MaitreCorbeaux_Service_AbstractService
+     */
+    public  function setMapper(MaitreCorbeaux_Model_Mapper_Abstract $value)
+    {
+        $this->_mapper = $value;
         return $this;
     }
 }
