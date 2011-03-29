@@ -19,14 +19,16 @@ extends MaitreCorbeaux_Service_Activity_Import_Feed
      */
     protected function _createActivityItem(Zend_Feed_Entry_Abstract $item)
     {
+        $publicationDate = new Zend_Date($item->published, Zend_Date::RFC_3339);
+        // We restores default timezone, as we don't want the RSS timezone to be used
+        $publicationDate->setTimezone();
+        
         $data = array(
             'title' => $item->title(),
             'description' => $item->content(),
             'link' => $item->link('alternate'),
             'externalId' => $item->id(),
-            'publicationDate' => new Zend_Date(
-                $item->published(), Zend_Date::RFC_3339
-            )
+            'publicationDate' => $publicationDate
         );
         
         if (mb_strlen($data['description']) > 255) {

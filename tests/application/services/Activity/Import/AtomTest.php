@@ -31,8 +31,8 @@ extends PHPUnit_Framework_TestCase
         $item = new MaitreCorbeaux_Model_Activity_Item(array(
             'externalId' => 'test-external-id',
             'publicationDate' => new Zend_Date(
-                '2011-03-28T15:00:00-07:00',
-                Zend_Date::RFC_3339
+                '2011-03-28 22:00:00',
+                'yyyy-MM-dd HH:mm:ss'
             ),
             'link' => 'http://www.maitre-corbeaux.com/test',
             'title' => 'Test title',
