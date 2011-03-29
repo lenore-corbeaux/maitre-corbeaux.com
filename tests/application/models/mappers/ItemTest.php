@@ -166,6 +166,19 @@ class MaitreCorbeaux_Model_Mapper_Activity_ItemTest extends DatabaseTestCase
         $this->assertEquals(1, count($row));
     }
 
+    public function testFetchLastItems()
+    {
+        $collection = $this->_mapper->fetchLast(3);
+        $this->assertInstanceOf(
+            'MaitreCorbeaux_Model_Collection_Activity_Item', $collection
+        );
+
+        $this->assertEquals(3, count($collection));
+        $this->assertEquals(4, $collection[0]->getId());
+        $this->assertEquals(3, $collection[1]->getId());
+        $this->assertEquals(2, $collection[2]->getId());
+    }
+
     /**
      * TestCase tear down
      *

@@ -60,6 +60,22 @@ extends MaitreCorbeaux_Service_AbstractService
     }
 
     /**
+     * Returns the n last Activity Items
+     * We use bootstrap to get the number of items to return
+     *
+     * @return MaitreCorbeaux_Model_Collection_Activity_Item
+     */
+    public function fetchLast()
+    {
+        $bootstrap = $this->getBootstrap();
+        $config = $bootstrap->getOption('activityItem');
+        $nbItems = $config['nbLast'];
+        $mapper = $this->getMapper();
+
+        return $mapper->fetchLast($nbItems);
+    }
+
+    /**
      *
      * @return MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
      * @see MaitreCorbeaux_Service_AbstractService::getMapper()

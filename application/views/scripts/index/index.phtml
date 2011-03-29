@@ -1,3 +1,19 @@
+<h3>Activités récentes</h3>
+<ul class="activity">
+    <?php foreach ($this->activityItems as $item): ?>
+    <li>
+        <div class="datetime">
+            <?php echo $this->escape($item->publicationDate->toString('dd/MM HH:mm')); ?>
+        </div>
+        <div class="content">
+            <a href="<?php echo $this->escape($item->link); ?>"
+               title="<?php echo $this->escape($item->description); ?>">
+                <?php echo $this->escape($item->title); ?>
+            </a>
+        </div>
+    </li>
+    <?php endforeach; ?>
+</ul>
 <h3>Présentation</h3>
 <p class="terminal">Ce site Internet a pour but de présenter mes travaux et activités de développement réalisés sur mon temps libre. Il a pour vocation de centraliser mon activité Internet provenant de plusieurs sources :</p>
 <ul>

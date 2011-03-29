@@ -104,6 +104,25 @@ ul#infos-right {
 ul#infos-right li {
     margin-bottom: 4px;
 }
+/* Home page activity */
+ul.activity {
+    font-size: 0.9em;
+    list-style-type: none;
+    padding: 0 0 30px 0;
+    margin: 0;
+}
+ul.activity li  {
+    clear: both;
+}
+ul.activity .datetime {
+    font-size: 0.7em;
+    margin-right: 3px;
+    float: left;
+}
+ul.activity .content {
+    float: left;
+    width: 90%;
+}
 /* Contact Form */
 dl.zend_form {
     width: 850px;

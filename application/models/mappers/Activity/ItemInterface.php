@@ -27,4 +27,13 @@ interface MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
      * @return MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
      */
     public function save(MaitreCorbeaux_Model_Activity_Item $item);
+
+    /**
+     * Returns a collection of the $nbItems last items
+     *
+     * @param int $nbItems
+     * @return MaitreCorbeaux_Model_Mapper_Activity_Item
+     * @see MaitreCorbeaux_Model_Mapper_Activity_ItemInterface::fetchLatests()
+     */
+    public function fetchLast($nbItems);
 }

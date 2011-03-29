@@ -93,7 +93,6 @@ implements MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
      */
     public function save(MaitreCorbeaux_Model_Activity_Item $item)
     {
-
         $publicationDate = $item->getPublicationDate();
 
         if (null !== $publicationDate) {
@@ -126,5 +125,29 @@ implements MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
         }
         
         return $this;
+    }
+
+    /**
+     *
+     * @param int $nbItems
+     * @return MaitreCorbeaux_Model_Mapper_Activity_Item
+     * @see MaitreCorbeaux_Model_Mapper_Activity_ItemInterface::fetchLatests()
+     */
+    public function fetchLast($nbItems)
+    {
+        $nbItems = (int) $nbItems;
+        $dbTable = $this->getDbTable();
+
+        $rowset = $dbTable->fetchAll(
+            null, 'publicationDateActivityItem DESC', $nbItems
+        );
+
+        $collection = new MaitreCorbeaux_Model_Collection_Activity_Item();
+
+        foreach ($rowset as $row) {
+            $collection->add($this->_createItemModel($row->toArray()));
+        }
+
+        return $collection;
     }
 }
