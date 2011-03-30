@@ -20,16 +20,16 @@ implements MaitreCorbeaux_Model_Mapper_Activity_SourceInterface
     protected function _createSourceModel(array $data)
     {
         $cleanData = array(
-            'id' => isset($data['idActivitySource'])
+            'id' => array_key_exists('idActivitySource', $data)
                     ? $data['idActivitySource']
                     : null,
-            'slug' => isset($data['slugActivitySource'])
+            'slug' => array_key_exists('slugActivitySource', $data)
                       ? $data['slugActivitySource']
                       : null,
-            'name' => isset($data['nameActivitySource'])
+            'name' => array_key_exists('nameActivitySource', $data)
                       ? $data['nameActivitySource']
                       : null,
-            'link' => isset($data['linkActivitySource'])
+            'link' => array_key_exists('linkActivitySource', $data)
                       ? $data['linkActivitySource']
                       : null
         );
