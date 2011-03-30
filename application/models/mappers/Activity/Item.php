@@ -15,8 +15,10 @@ implements MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
      * Create an Activity Item model from a data array
      *
      * @param array $data
+     * @return MaitreCorbeaux_Model_Activity_Item
+     * @see MaitreCorbeaux_Model_Mapper_AbstractMapper::createModel()
      */
-    protected function _createItemModel(array $data)
+    public function createModel(array $data)
     {
         $cleanData = array(
             'id' => array_key_exists('idActivityItem', $data)
@@ -43,6 +45,24 @@ implements MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
         );
         
         return new MaitreCorbeaux_Model_Activity_Item($cleanData);
+    }
+
+    /**
+     * Create an Activity Item collection from a data array
+     *
+     * @param array $data
+     * @return MaitreCorbeaux_Model_Collection_Activity_Item
+     * @see MaitreCorbeaux_Model_Mapper_AbstractMapper::createCollection()
+     */
+    public function createCollection(array $data)
+    {
+        $collection = new MaitreCorbeaux_Model_Collection_Activity_Item();
+
+        foreach ($data as $row) {
+            $collection->add($this->createModel((array) $row));
+        }
+
+        return $collection;
     }
 
     /**
@@ -81,7 +101,7 @@ implements MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
             return null;
         }
 
-        return $this->_createItemModel($rowset->current()->toArray());
+        return $this->createModel($rowset->current()->toArray());
     }
 
     /**
@@ -142,12 +162,23 @@ implements MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
             null, 'publicationDateActivityItem DESC', $nbItems
         );
 
-        $collection = new MaitreCorbeaux_Model_Collection_Activity_Item();
+        return $this->createCollection($rowset->toArray());
+    }
 
-        foreach ($rowset as $row) {
-            $collection->add($this->_createItemModel($row->toArray()));
-        }
+    /**
+     *
+     * @param int $offset
+     * @param int $itemCountPerPage
+     * @return Zend_Paginator
+     * @see MaitreCorbeaux_Model_Mapper_Activity_ItemInterface::paginateAll()
+     */
+    public function paginateAll($offset, $itemCountPerPage)
+    {
+        $select = $this->getDbTable()
+                       ->select();
 
-        return $collection;
+        $select->order('publicationDateActivityItem DESC');
+
+        return $this->_createPaginator($select, $offset, $itemCountPerPage);
     }
 }

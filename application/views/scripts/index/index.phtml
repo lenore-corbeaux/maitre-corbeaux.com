@@ -1,4 +1,7 @@
-<h3>Activités récentes</h3>
+<h3 class="activity">
+    Activité récente 
+    <a href="<?php echo $this->url(array(), 'activity', true); ?>">(Voir toute l'activité)</a>
+</h3>
 <ul class="activity">
     <?php foreach ($this->activityItems as $item): ?>
     <li>

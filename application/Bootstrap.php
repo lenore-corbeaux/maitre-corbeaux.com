@@ -40,4 +40,13 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $options = $this->getOption('contact');
         return $options;
     }
+
+    /**
+     * Initialize Paginator
+     */
+    protected function _initPaginator()
+    {
+        Zend_View_Helper_PaginationControl::setDefaultViewPartial('_pagination-control.phtml');
+        Zend_Paginator::setDefaultScrollingStyle('Elastic');
+    }
 }

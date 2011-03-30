@@ -1,0 +1,19 @@
+<h3>Activité Internet</h3>
+<p class="terminal">Retrouvez sur cette page toute mon activité Internet.</p>
+<hr class="separator"/>
+<ul class="activity">
+    <?php foreach ($this->paginator as $item): ?>
+    <li>
+        <div class="datetime">
+            <?php echo $this->escape($item->publicationDate->toString('dd/MM/yy HH:mm')); ?>
+        </div>
+        <div class="content">
+            <a href="<?php echo $this->escape($item->link); ?>"
+               title="<?php echo $this->escape($item->description); ?>">
+                <?php echo $this->escape($item->title); ?>
+            </a>
+        </div>
+    </li>
+    <?php endforeach; ?>
+</ul>
+<?php echo $this->paginator; ?>

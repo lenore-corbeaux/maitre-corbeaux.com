@@ -5,30 +5,22 @@ class ContactControllerTest extends AbstractControllerTestCase
 {
     public function testIndexActionIsReachable()
     {
-        $params = array('action' => 'index',
-                        'controller' => 'contact',
-                        'module' => 'default');
-
-        $url = $this->url($this->urlizeOptions($params));
-        $this->dispatch($url);
+        $this->dispatch('/contact');
         
-        $this->assertModule($params['module']);
-        $this->assertController($params['controller']);
-        $this->assertAction($params['action']);
+        $this->assertModule('default');
+        $this->assertController('contact');
+        $this->assertAction('index');
+        $this->assertResponseCode(200);
     }
 
     public function testConfirmActionIsReachable()
     {
-        $params = array('action' => 'confirm',
-                        'controller' => 'contact',
-                        'module' => 'default');
+        $this->dispatch('/contact/confirm');
 
-        $url = $this->url($this->urlizeOptions($params));
-        $this->dispatch($url);
-
-        $this->assertModule($params['module']);
-        $this->assertController($params['controller']);
-        $this->assertAction($params['action']);
+        $this->assertModule('default');
+        $this->assertController('contact');
+        $this->assertAction('confirm');
+        $this->assertResponseCode(200);
     }
 }
 

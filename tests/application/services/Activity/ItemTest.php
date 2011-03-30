@@ -34,6 +34,11 @@ extends PHPUnit_Framework_TestCase
         $this->markTestIncomplete('Not yet implemented');
     }
 
+    public function testPaginateAll()
+    {
+        $this->markTestIncomplete('Not yet implemented');
+    }
+
     /**
      * TestCase tear down
      *

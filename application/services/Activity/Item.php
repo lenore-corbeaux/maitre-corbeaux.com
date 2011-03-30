@@ -76,6 +76,22 @@ extends MaitreCorbeaux_Service_AbstractService
     }
 
     /**
+     * Returns a paginator of Activity Items
+     *
+     * @param int $page
+     * @return Zend_Paginator
+     */
+    public function paginateAll($page)
+    {
+        $bootstrap = $this->getBootstrap();
+        $config = $bootstrap->getOption('activityItem');
+        $nbItems = $config['nbPaginator'];
+        $mapper = $this->getMapper();
+
+        return $mapper->paginateAll($page, $nbItems);
+    }
+
+    /**
      *
      * @return MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
      * @see MaitreCorbeaux_Service_AbstractService::getMapper()

@@ -16,8 +16,9 @@ implements MaitreCorbeaux_Model_Mapper_Activity_SourceInterface
      *
      * @param array $data
      * @return MaitreCorbeaux_Model_Activity_Source
+     * @see MaitreCorbeaux_Model_Mapper_AbstractMapper::createModel()
      */
-    protected function _createSourceModel(array $data)
+    public function createModel(array $data)
     {
         $cleanData = array(
             'id' => array_key_exists('idActivitySource', $data)
@@ -35,6 +36,24 @@ implements MaitreCorbeaux_Model_Mapper_Activity_SourceInterface
         );
 
         return new MaitreCorbeaux_Model_Activity_Source($cleanData);
+    }
+
+    /**
+     * Create an Activity Source collection from a data array
+     *
+     * @param array $data
+     * @return MaitreCorbeaux_Model_Collection_Activity_Source
+     * @see MaitreCorbeaux_Model_Mapper_AbstractMapper::createCollection()
+     */
+    public function createCollection(array $data)
+    {
+        $collection = new MaitreCorbeaux_Model_Collection_Activity_Source();
+
+        foreach ($data as $row) {
+            $collection->add($this->createModel((array) $row));
+        }
+
+        return $collection;
     }
 
     /**
@@ -59,17 +78,9 @@ implements MaitreCorbeaux_Model_Mapper_Activity_SourceInterface
      */
     public final function fetchAll()
     {
-        $rowsetData = $this->getDbTable()
-                           ->fetchAll()
-                           ->toArray();
+        $rowset = $this->getDbTable()
+                       ->fetchAll();
 
-        $sourceCollection =
-            new MaitreCorbeaux_Model_Collection_Activity_Source();
-
-        foreach ($rowsetData as $rowData) {
-            $sourceCollection->add($this->_createSourceModel($rowData));
-        }
-
-        return $sourceCollection;
+        return $this->createCollection($rowset->toArray());
     }
 }

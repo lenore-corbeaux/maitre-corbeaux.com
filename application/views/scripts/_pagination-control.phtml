@@ -1,0 +1,23 @@
+<div class="pagination-control">
+    <div class="header">
+        Page <?php echo $this->current; ?> sur <?php echo $this->last; ?>
+    </div>
+    <?php if (isset($this->previous)): ?>
+    <a href="<?php echo $this->url(array('page' => $this->first)); ?>">&lt;&lt;</a>
+    <a href="<?php echo $this->url(array('page' => $this->previous)); ?>">&lt;</a> |
+    <?php endif; ?>
+    <?php foreach ($this->pagesInRange as $page): ?>
+    <?php if ($page != $this->current): ?>
+    <a href="<?php echo $this->url(array('page' => $page)); ?>">
+        <?php echo $page; ?>
+    </a>
+    <?php else: ?>
+    <?php echo $page; ?>
+    <?php endif; ?>
+    |
+    <?php endforeach; ?>
+    <?php if (isset($this->next)): ?>
+    <a href="<?php echo $this->url(array('page' => $this->next)); ?>">&gt;</a>
+    <a href="<?php echo $this->url(array('page' => $this->last)); ?>">&gt;&gt;</a>
+    <?php endif; ?>
+</div>

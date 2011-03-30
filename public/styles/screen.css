@@ -104,7 +104,20 @@ ul#infos-right {
 ul#infos-right li {
     margin-bottom: 4px;
 }
-/* Home page activity */
+
+hr.separator {
+    visibility: hidden;
+    height: 20px;
+}
+/* Activity */
+h3.activity a {
+    font-size: 0.5em;
+    color: #333333;
+    font-weight: normal;
+}
+h3.activity a:hover {
+    color: #ffffff;
+}
 ul.activity {
     font-size: 0.9em;
     list-style-type: none;
@@ -116,12 +129,23 @@ ul.activity li  {
 }
 ul.activity .datetime {
     font-size: 0.7em;
-    margin-right: 3px;
+    margin: 3px 10px 10px 3px;
     float: left;
 }
 ul.activity .content {
     float: left;
-    width: 90%;
+    width: 85%;
+    margin-bottom: 10px;
+}
+/* Pagination control */
+.pagination-control .header {
+    font-size: 0.9em;
+    margin-bottom: 10px;
+}
+.pagination-control {
+    font-size: 0.8em;
+    margin: 15px 0 15px 0;
+    text-align: center;
 }
 /* Contact Form */
 dl.zend_form {

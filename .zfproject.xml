@@ -16,6 +16,9 @@
           <actionMethod actionName="index"/>
           <actionMethod actionName="confirm"/>
         </controllerFile>
+        <controllerFile controllerName="Activity">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false"/>
       <layoutsDirectory enabled="false"/>
@@ -34,6 +37,9 @@
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Contact">
             <viewScriptFile forActionName="confirm"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Activity">
+            <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
         <viewHelpersDirectory/>
@@ -72,6 +78,9 @@
           <testApplicationControllerFile forControllerName="Contact">
             <testApplicationActionMethod forActionName="index"/>
             <testApplicationActionMethod forActionName="confirm"/>
+          </testApplicationControllerFile>
+          <testApplicationControllerFile forControllerName="Activity">
+            <testApplicationActionMethod forActionName="index"/>
           </testApplicationControllerFile>
         </testApplicationControllerDirectory>
       </testApplicationDirectory>

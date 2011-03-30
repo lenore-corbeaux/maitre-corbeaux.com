@@ -36,4 +36,13 @@ interface MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
      * @see MaitreCorbeaux_Model_Mapper_Activity_ItemInterface::fetchLatests()
      */
     public function fetchLast($nbItems);
+
+    /**
+     * Returns a paginator of all Activity Items, ordered by publication date
+     *
+     * @param int $offset
+     * @param int $itemCountPerPage
+     * @return Zend_Paginator
+     */
+    public function paginateAll($offset, $itemCountPerPage);
 }

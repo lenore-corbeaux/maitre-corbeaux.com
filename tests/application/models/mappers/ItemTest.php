@@ -179,6 +179,19 @@ class MaitreCorbeaux_Model_Mapper_Activity_ItemTest extends DatabaseTestCase
         $this->assertEquals(2, $collection[2]->getId());
     }
 
+    public function testPaginateAllItems()
+    {
+        $paginator = $this->_mapper->paginateAll(1, 2);
+        $collection = $paginator->getCurrentItems();
+
+        $this->assertInstanceOf('Zend_Paginator', $paginator);
+        $this->assertInstanceOf(
+            'MaitreCorbeaux_Model_Collection_Activity_Item', $collection
+        );
+        $this->assertEquals(2, count($collection));
+        $this->assertEquals(2, count($paginator));
+    }
+
     /**
      * TestCase tear down
      *
