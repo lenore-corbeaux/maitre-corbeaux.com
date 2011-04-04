@@ -1,2 +1,14 @@
-nbproject
+# Netbeans project files
+nbproject/
 catalog.xml
+
+# Zend Framework
+library/Zend
+
+# Application's data
+data/cache/*
+data/logs/*
+
+# PHPUnit temporary data
+tests/_files/emails/*
+tests/log/*

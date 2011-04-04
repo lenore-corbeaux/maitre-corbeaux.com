@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataset>
+    <!-- Activity Sources -->
+    <ActivitySource idActivitySource="1" slugActivitySource="twitter" nameActivitySource="Twitter" linkActivitySource="http://twitter.com/lucascorbeaux" />
+    <ActivitySource idActivitySource="2" slugActivitySource="developpezCom" nameActivitySource="Blog Developpez.com" linkActivitySource="http://blog.developpez.com/lucas-corbeaux/" />
+    <ActivitySource idActivitySource="3" slugActivitySource="github" nameActivitySource="Github" linkActivitySource="https://github.com/lucascorbeaux" />
+    <!-- Activity Items -->
+    <ActivityItem idActivityItem="1" titleActivityItem="Item 1" descriptionActivityItem="My first item" linkActivityItem="http://www.maitre-corbeaux.com/1" externalIdActivityItem="external-id-1" publicationDateActivityItem="2011-03-27 11:32:00" idActivitySourceActivityItem="1" />
+    <ActivityItem idActivityItem="2" titleActivityItem="Item 2" linkActivityItem="http://www.maitre-corbeaux.com/2" externalIdActivityItem="external-id-2" publicationDateActivityItem="2011-03-27 11:33:00" idActivitySourceActivityItem="1" />
+    <ActivityItem idActivityItem="3" titleActivityItem="Item 3" descriptionActivityItem="My third item" linkActivityItem="http://www.maitre-corbeaux.com/3" externalIdActivityItem="external-id-1" publicationDateActivityItem="2011-03-27 11:34:00" idActivitySourceActivityItem="3" />
+    <ActivityItem idActivityItem="4" titleActivityItem="Item 4" linkActivityItem="http://www.maitre-corbeaux.com/4" externalIdActivityItem="external-id-3" publicationDateActivityItem="2011-03-27 11:35:00" idActivitySourceActivityItem="1" />
+</dataset>

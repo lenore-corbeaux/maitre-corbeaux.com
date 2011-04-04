@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+    <channel>
+        <item>
+            <title>Test title</title>
+            <link>http://www.maitre-corbeaux.com/test</link>
+            <pubDate>Tue, 29 Mar 2011 14:26:05 +0000</pubDate>
+            <guid isPermaLink="false">test-external-id</guid>
+            <description>Test description</description>
+        </item>
+    </channel>
+</rss>
