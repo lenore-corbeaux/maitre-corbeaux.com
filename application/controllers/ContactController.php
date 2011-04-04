@@ -2,6 +2,20 @@
 
 class ContactController extends Zend_Controller_Action
 {
+    /**
+     * Define the Head Title
+     * 
+     * @return void
+     */
+    public function init()
+    {
+        $this->view
+             ->headTitle(
+                'Contactez Lucas Corbeaux, développeur senior sur Angers',
+                'PREPEND'
+             );
+    }
+
     public function indexAction()
     {
         $service = new MaitreCorbeaux_Service_Contact();

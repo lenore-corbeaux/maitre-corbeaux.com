@@ -13,7 +13,7 @@ class IndexController extends Zend_Controller_Action
 
         $this->view
              ->headTitle(
-                'Site personnel de Lucas Corbeaux développeur senior sur Angers',
+                'Site personnel de Lucas Corbeaux, développeur senior sur Angers',
                 'PREPEND'
              );
 
