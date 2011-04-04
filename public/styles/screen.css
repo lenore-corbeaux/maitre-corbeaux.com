@@ -105,6 +105,20 @@ ul#infos-right li {
     margin-bottom: 4px;
 }
 
+ul#infos-right li.logos {
+    text-align: center;
+}
+
+ul#infos-right li.logos img {
+    text-align: center;
+    margin: 20px;
+    border: none;
+}
+
+ul#infos-right li.logos a:hover {
+    background-color: #ffffff;
+}
+
 hr.separator {
     visibility: hidden;
     height: 20px;
