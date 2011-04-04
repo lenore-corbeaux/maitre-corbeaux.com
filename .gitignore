@@ -5,6 +5,9 @@ catalog.xml
 # Zend Framework
 library/Zend
 
+# Application's private data
+application/configs/application.ini
+
 # Application's data
 data/cache/*
 data/logs/*
