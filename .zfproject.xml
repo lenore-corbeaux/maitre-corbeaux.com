@@ -19,6 +19,9 @@
         <controllerFile controllerName="Activity">
           <actionMethod actionName="index"/>
         </controllerFile>
+        <controllerFile controllerName="Sitemap">
+          <actionMethod actionName="index"/>
+        </controllerFile>
       </controllersDirectory>
       <formsDirectory enabled="false"/>
       <layoutsDirectory enabled="false"/>
@@ -39,6 +42,9 @@
             <viewScriptFile forActionName="confirm"/>
           </viewControllerScriptsDirectory>
           <viewControllerScriptsDirectory forControllerName="Activity">
+            <viewScriptFile forActionName="index"/>
+          </viewControllerScriptsDirectory>
+          <viewControllerScriptsDirectory forControllerName="Sitemap">
             <viewScriptFile forActionName="index"/>
           </viewControllerScriptsDirectory>
         </viewScriptsDirectory>
@@ -80,6 +86,9 @@
             <testApplicationActionMethod forActionName="confirm"/>
           </testApplicationControllerFile>
           <testApplicationControllerFile forControllerName="Activity">
+            <testApplicationActionMethod forActionName="index"/>
+          </testApplicationControllerFile>
+          <testApplicationControllerFile forControllerName="Sitemap">
             <testApplicationActionMethod forActionName="index"/>
           </testApplicationControllerFile>
         </testApplicationControllerDirectory>
