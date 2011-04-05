@@ -65,6 +65,10 @@ implements MaitreCorbeaux_Service_Activity_Import_ImportInterface
         $service = new MaitreCorbeaux_Service_Activity_Item();
         $sources = $this->getSources();
 
+        $this->_log('Cleaning activity cache');
+        $cache = $this->getCache();
+        $cache->clean('matchingTag', array('activity'));
+
         $this->_log('Start of activity items import');
 
         foreach ($sources as $source) {
@@ -92,10 +96,6 @@ implements MaitreCorbeaux_Service_Activity_Import_ImportInterface
             
             $this->_log("End of $slug import");
         }
-
-        $this->_log('Cleaning activity cache');
-        $cache = $this->getCache();        
-        $cache->clean('matchingTag', array('activity'));
 
         $this->_log('End of activity items import');
         return $this;
