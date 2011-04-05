@@ -30,6 +30,12 @@ implements MaitreCorbeaux_Service_Activity_Import_ImportInterface
     protected $_log;
 
     /**
+     *
+     * @var Zend_Cache_Core
+     */
+    protected $_cache;
+
+    /**
      * Log information in any logger available
      *
      * @param string $message
@@ -86,6 +92,10 @@ implements MaitreCorbeaux_Service_Activity_Import_ImportInterface
             
             $this->_log("End of $slug import");
         }
+
+        $this->_log('Cleaning activity cache');
+        $cache = $this->getCache();        
+        $cache->clean('matchingTag', array('activity'));
 
         $this->_log('End of activity items import');
         return $this;
@@ -153,6 +163,33 @@ implements MaitreCorbeaux_Service_Activity_Import_ImportInterface
     public function setLog(Zend_Log $log)
     {
         $this->_log = $log;
+        return $this;
+    }
+
+    /**
+     *
+     * @return Zend_Cache_Core
+     */
+    public function getCache()
+    {
+        if (null === $this->_cache) {
+            $manager = $this->getBootstrap()
+                            ->getResource('Cachemanager');
+            
+            $this->_cache = $manager->getCache(Zend_Cache_Manager::PAGECACHE);
+        }
+
+        return $this->_cache;
+    }
+
+    /**
+     *
+     * @param Zend_Cache_Core $value
+     * @return MaitreCorbeaux_Service_Activity_Import_Facade
+     */
+    public function setCache(Zend_Cache_Core $value)
+    {
+        $this->_cache = $value;
         return $this;
     }
 }

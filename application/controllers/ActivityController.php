@@ -11,6 +11,16 @@
 class ActivityController extends Zend_Controller_Action
 {
     /**
+     * Initialize static cache
+     *
+     * @return void
+     */
+    public function init()
+    {
+        $this->_helper->cache(array('index'), array('activity'));
+    }
+    
+    /**
      * Display the activity page : All Activity Items paginated
      */
     public function indexAction()

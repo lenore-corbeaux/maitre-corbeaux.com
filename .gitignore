@@ -11,6 +11,7 @@ application/configs/application.ini
 # Application's data
 data/cache/*
 data/logs/*
+public/cached/*
 
 # PHPUnit temporary data
 tests/_files/emails/*
