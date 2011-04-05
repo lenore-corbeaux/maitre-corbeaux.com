@@ -148,7 +148,13 @@ ul.activity .datetime {
 }
 ul.activity .content {
     float: left;
-    width: 85%;
+    width: 70%;
+    margin-bottom: 10px;
+}
+ul.activity .source {
+    float: right;
+    width: 15%;
+    font-size: 0.7em;
     margin-bottom: 10px;
 }
 /* Pagination control */

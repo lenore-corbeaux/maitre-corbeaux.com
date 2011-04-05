@@ -4,6 +4,7 @@
 </h3>
 <ul class="activity">
     <?php foreach ($this->activityItems as $item): ?>
+    <?php $source = $item->getSource(); ?>
     <li>
         <div class="datetime">
             <?php echo $this->escape($item->publicationDate->toString('dd/MM HH:mm')); ?>
@@ -12,6 +13,12 @@
             <a href="<?php echo $this->escape($item->link); ?>"
                title="<?php echo $this->escape($item->description); ?>">
                 <?php echo $this->escape($item->title); ?>
+            </a>
+        </div>
+        <div class="source">
+            <a href="<?php echo $this->escape($source->getLink()); ?>"
+               title="<?php echo $this->escape($source->getName()); ?>">
+                <?php echo $this->escape($source->getName()); ?>
             </a>
         </div>
     </li>

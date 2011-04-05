@@ -117,6 +117,31 @@ class MaitreCorbeaux_Model_Mapper_Activity_ItemTest extends DatabaseTestCase
     }
 
     /**
+     * Data for ActivitySource joint
+     *
+     * @return array
+     */
+    static public function activitySourcesProvider()
+    {
+        return array(
+            array(
+                $source1 = new MaitreCorbeaux_Model_Activity_Source(array(
+                    'id' => 1,
+                    'slug' => 'twitter',
+                    'name' => 'Twitter',
+                    'link' => 'http://twitter.com/lucascorbeaux'
+                )),
+                $source3 = new MaitreCorbeaux_Model_Activity_Source(array(
+                    'id' => 3,
+                    'slug' => 'github',
+                    'name' => 'Github',
+                    'link' => 'https://github.com/lucascorbeaux'
+                ))
+            )
+        );
+    }
+
+    /**
      * Initialize the TestCase
      *
      * @return void
@@ -179,6 +204,18 @@ class MaitreCorbeaux_Model_Mapper_Activity_ItemTest extends DatabaseTestCase
         $this->assertEquals(2, $collection[2]->getId());
     }
 
+    /**
+     *
+     * @dataProvider activitySourcesProvider
+     */
+    public function testFetchLastItemsJoinActivitySources($source1, $source3)
+    {
+        $collection = $this->_mapper->fetchLast(2);
+
+        $this->assertEquals($source1, $collection[0]->getSource());
+        $this->assertEquals($source3, $collection[1]->getSource());
+    }
+
     public function testPaginateAllItems()
     {
         $paginator = $this->_mapper->paginateAll(1, 2);
@@ -190,6 +227,19 @@ class MaitreCorbeaux_Model_Mapper_Activity_ItemTest extends DatabaseTestCase
         );
         $this->assertEquals(2, count($collection));
         $this->assertEquals(2, count($paginator));
+    }
+
+    /**
+     *
+     * @dataProvider activitySourcesProvider
+     */
+    public function testPaginateAllJoinActivitySources($source1, $source3)
+    {
+        $paginator = $this->_mapper->paginateAll(1, 2);
+        $collection = $paginator->getCurrentItems();
+
+        $this->assertEquals($source1, $collection[0]->getSource());
+        $this->assertEquals($source3, $collection[1]->getSource());
     }
 
     /**

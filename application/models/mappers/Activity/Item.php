@@ -12,6 +12,44 @@ extends MaitreCorbeaux_Model_Mapper_AbstractMapper
 implements MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
 {
     /**
+     *
+     * @var MaitreCorbeaux_Model_Mapper_Activity_SourceInterface
+     */
+    protected $_activitySourceMapper;
+
+    /**
+     * Return a join select between ActivityItem and ActivitySource table
+     *
+     * @return Zend_Db_Select
+     */
+    protected function _createSelect()
+    {
+        $itemDbTable = $this->getDbTable();
+        $sourceDbTable = $this->getActivitySourceMapper()
+                              ->getDbTable();
+
+        $dbAdapter = $itemDbTable->getAdapter();
+
+        $itemTableName = $dbAdapter->quoteIdentifier(
+            $itemDbTable->info('name')
+        );
+
+        $sourceTableName = $dbAdapter->quoteIdentifier(
+            $sourceDbTable->info('name')
+        );
+
+        $select = $dbAdapter->select();
+
+        $cond = "$itemTableName.idActivitySourceActivityItem = "
+              . "$sourceTableName.idActivitySource";
+
+        $select->from($itemDbTable->info('name'))
+               ->join($sourceDbTable->info('name'), $cond);
+
+        return $select;
+    }
+
+    /**
      * Create an Activity Item model from a data array
      *
      * @param array $data
@@ -44,7 +82,15 @@ implements MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
                     : null
         );
         
-        return new MaitreCorbeaux_Model_Activity_Item($cleanData);
+        $model = new MaitreCorbeaux_Model_Activity_Item($cleanData);
+
+        // We use isset here, because we want only non-null value
+        if (isset($data['idActivitySourceActivityItem'])) {
+            $sourceMapper = $this->getActivitySourceMapper();
+            $model->setSource($sourceMapper->createModel($data));
+        }
+
+        return $model;
     }
 
     /**
@@ -63,21 +109,6 @@ implements MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
         }
 
         return $collection;
-    }
-
-    /**
-     *
-     * @return Zend_Db_Table_Abstract
-     * @see MaitreCorbeaux_Model_Mapper_Activity_Item::getDbTable()
-     */
-    public function getDbTable()
-    {
-        if (null === $this->_dbTable) {
-            $this->_dbTable =
-                new MaitreCorbeaux_Model_DbTable_Activity_Item();
-        }
-
-        return $this->_dbTable;
     }
 
     /**
@@ -156,13 +187,16 @@ implements MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
     public function fetchLast($nbItems)
     {
         $nbItems = (int) $nbItems;
-        $dbTable = $this->getDbTable();
+        $select = $this->_createSelect();
 
-        $rowset = $dbTable->fetchAll(
-            null, 'publicationDateActivityItem DESC', $nbItems
-        );
+        $select->order('publicationDateActivityItem DESC')
+               ->limit($nbItems);
 
-        return $this->createCollection($rowset->toArray());
+        $dbAdapter = $this->getDbTable()
+                          ->getAdapter();
+
+        $data = $dbAdapter->fetchAll($select);
+        return $this->createCollection($data);
     }
 
     /**
@@ -174,11 +208,52 @@ implements MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
      */
     public function paginateAll($offset, $itemCountPerPage)
     {
-        $select = $this->getDbTable()
-                       ->select();
-
+        $select = $this->_createSelect();
         $select->order('publicationDateActivityItem DESC');
 
         return $this->_createPaginator($select, $offset, $itemCountPerPage);
+    }
+
+    /**
+     *
+     * @return Zend_Db_Table_Abstract
+     * @see MaitreCorbeaux_Model_Mapper_Activity_Item::getDbTable()
+     */
+    public function getDbTable()
+    {
+        if (null === $this->_dbTable) {
+            $this->_dbTable =
+                new MaitreCorbeaux_Model_DbTable_Activity_Item();
+        }
+
+        return $this->_dbTable;
+    }
+
+    /**
+     *
+     * @return MaitreCorbeaux_Model_Mapper_Activity_SourceInterface
+     * @see MaitreCorbeaux_Model_Mapper_Activity_Item::getDbTable()
+     */
+    public function getActivitySourceMapper()
+    {
+        if (null === $this->_activitySourceMapper) {
+            $this->_activitySourceMapper =
+                new MaitreCorbeaux_Model_Mapper_Activity_Source();
+        }
+
+        return $this->_activitySourceMapper;
+    }
+
+    /**
+     *
+     * @param MaitreCorbeaux_Model_Mapper_Activity_SourceInterface $value
+     * @return MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
+     */
+    public function setActivitySourceMapper(
+        MaitreCorbeaux_Model_Mapper_Activity_SourceInterface $value
+    )
+    {
+        $this->_activitySourceMapper = $value;
+        return $this;
     }
 }

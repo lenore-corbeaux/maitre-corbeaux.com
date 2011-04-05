@@ -45,4 +45,19 @@ interface MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
      * @return Zend_Paginator
      */
     public function paginateAll($offset, $itemCountPerPage);
+
+    /**
+     *
+     * @return MaitreCorbeaux_Model_Mapper_Activity_SourceInterface
+     */
+    public function getActivitySourceMapper();
+
+    /**
+     *
+     * @param MaitreCorbeaux_Model_Mapper_Activity_SourceInterface $value
+     * @return MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
+     */
+    public function setActivitySourceMapper(
+        MaitreCorbeaux_Model_Mapper_Activity_SourceInterface $value
+    );
 }
