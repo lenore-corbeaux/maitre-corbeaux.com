@@ -49,4 +49,15 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         Zend_View_Helper_PaginationControl::setDefaultViewPartial('_pagination-control.phtml');
         Zend_Paginator::setDefaultScrollingStyle('Elastic');
     }
+
+    /**
+     * Initialize Twitter configuration
+     *
+     * @return array
+     */
+    protected function _initTwitter()
+    {
+        $options = $this->getOption('twitter');
+        return $options;
+    }
 }
