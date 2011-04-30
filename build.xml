@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Maitre-corbeaux.com" default="build">
+	<!-- PREPARE TARGET -->
+	<target name="prepare">
+		<echo msg="Preparing application directories..." />
+		<mkdir dir="./docs/tests/coverage" />
+		<mkdir dir="./docs/tests/reports" />
+		<mkdir dir="./docs/lint" />
+		<mkdir dir="./docs/api" />
+		<mkdir dir="./data/cache" />
+		<chmod file="./data/cache" mode="0755" />
+		<mkdir dir="./data/logs" />
+		<chmod file="./data/logs" mode="0755" />
+		<mkdir dir="./data/twitter" />
+		<mkdir dir="./tests/_files/emails" />
+		<mkdir dir="./public/cached" />
+		<chmod file="./public/cached" mode="0755" />
+		<echo msg="Copying application.ini, don't forget to configure it..." />
+		<copy file="./application/configs/application.sample.ini"
+			  tofile="./application/configs/application.ini" />
+	</target>
+	<!-- UNITTESTS TARGET -->
+	<target name="unittests">
+		<echo msg="Running unit tests..." />
+		<coverage-setup database="./docs/tests/reports/coverage.db">
+   			<fileset dir="./">
+  		    	<include name="application/*.php" />
+  		    	<include name="application/**/*.php" />
+  		    	<include name="library/MaitreCorbeaux/*.php" />
+  		    	<include name="library/MaitreCorbeaux/**/*.php" />
+  			</fileset>
+		</coverage-setup>
+		<phpunit bootstrap="./tests/bootstrap.php"
+         		 codecoverage="true"
+         		 printsummary="true">
+         	<formatter todir="./docs/tests/reports" type="plain"/>
+			<batchtest>
+				<fileset dir="./tests">
+					<include name="**/*Test*.php"/>
+					<exclude name="**/Abstract*.php"/>
+				</fileset>
+			</batchtest>
+		</phpunit>
+		<coverage-report outfile="./docs/tests/reports/coverage.xml">
+  			<report todir="./docs/tests/coverage" />
+		</coverage-report>
+	</target>
+	<!-- APIDOCS TARGET -->
+	<target name="apidocs">
+		<echo msg="Generating API docs..." />
+		<phpdoc title="Maitre-corbeaux.com API Documentation"
+				destdir="./docs/api"
+				sourcecode="true"
+				output="HTML:frames:default">
+   			<fileset dir="./">
+  		    	<include name="application/*.php" />
+  		    	<include name="application/**/*.php" />
+  		    	<include name="library/MaitreCorbeaux/*.php" />
+  		    	<include name="library/MaitreCorbeaux/**/*.php" />
+  			</fileset>
+		</phpdoc>
+	</target>
+	<!-- LINT TARGET -->
+	<target name="lint">	
+		<echo msg="Checking PHP syntax..." />
+		<phplint tofile="./docs/lint/report.txt"
+				 deprecatedAsError="true"
+				 haltonfailure="true">
+  			<fileset dir="./">
+    			<include name="*.php"/>
+    			<include name="**/*.php"/>
+ 			</fileset>
+		</phplint>
+	</target>
+	<!-- BUILD TARGET -->
+	<target name="build" depends="prepare">
+		<phingcall target="lint" />
+		<phingcall target="unittests" />
+		<phingcall target="apidocs" />
+	</target>
+</project>

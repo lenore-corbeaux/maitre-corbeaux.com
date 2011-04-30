@@ -3,6 +3,10 @@
  * Error Controller
  *
  * Display and log error messages
+ *  
+ * @category MaitreCorbeaux
+ * @package Default
+ * @subpackage Controller
  */
 class ErrorController extends Zend_Controller_Action
 {

@@ -2,8 +2,8 @@
 /**
  * @author Lucas CORBEAUX
  * @category MaitreCorbeaux
- * @package Service
- * @subpackage Activity
+ * @package Library
+ * @subpackage Service
  * @see MaitreCorbeaux_Service_Activity_Exception
  */
 class MaitreCorbeaux_Service_Activity_Import_Exception

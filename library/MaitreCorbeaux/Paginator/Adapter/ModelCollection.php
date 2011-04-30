@@ -1,8 +1,13 @@
 <?php
 /**
- * Paginator adapter that internally use a MaitreCorbeaux_Model_Collection_AbstractCollection
+ * Paginator adapter that internally use a
+ * MaitreCorbeaux_Model_Collection_AbstractCollection
  * created from the Zend_Db_Select provided
- *
+ * 
+ * @author Lucas CORBEAUX
+ * @category MaitreCorbeaux
+ * @package Library
+ * @subpackage Paginator
  * @see Zend_Paginator_Adapter_DbSelect
  */
 class MaitreCorbeaux_Paginator_Adapter_ModelCollection

@@ -1,5 +1,11 @@
 <?php
-
+/**
+ * Contact controller
+ * 
+ * @category MaitreCorbeaux
+ * @package Default
+ * @subpackage Controller
+ */
 class ContactController extends Zend_Controller_Action
 {
     /**

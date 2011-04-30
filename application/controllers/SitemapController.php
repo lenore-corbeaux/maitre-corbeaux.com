@@ -1,4 +1,13 @@
 <?php
+/**
+ * Sitemap Controller
+ * 
+ * Generate the Google Sitemap
+ * 
+ * @category MaitreCorbeaux
+ * @package Default
+ * @subpackage Controller
+ */
 class SitemapController extends Zend_Controller_Action
 {
     public function indexAction()

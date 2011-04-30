@@ -7,14 +7,4 @@
             <directory>./</directory>
         </testsuite>
     </testsuites>
-    <filter>
-        <whitelist>
-            <directory suffix=".php">../application/</directory>
-            <directory suffix=".php">../library/</directory>
-        </whitelist>
-    </filter>
-    <logging>
-        <log type="coverage-html" target="./log/coverage" charset="UTF-8" />
-        <log type="testdox-html" target="./log/testdox.html" charset="UTF-8" />
-    </logging>
 </phpunit>

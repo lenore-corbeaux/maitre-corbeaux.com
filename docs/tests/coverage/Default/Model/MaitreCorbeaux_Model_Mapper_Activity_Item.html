@@ -1,0 +1,1346 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<LINK REL="stylesheet" TYPE="text/css" TITLE="Style" href="../../stylesheet.css">
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="bannercell" rowspan="2"><a href="http://phing.info/"><img src="http://phing.info/images/phing.gif" alt="http://phing.info/" align="left" border="0"></a></td>
+<td style="text-align:right"><h2>Source Code Coverage</h2></td>
+</tr>
+<tr><td style="text-align:right">Designed for use with <a href="http://pear.php.net/package/PHPUnit2">PHPUnit2</a>, <a href="http://www.xdebug.org/">Xdebug</a> and <a href="http://phing.info/">Phing</a>.</td></tr>
+</table>
+<hr size="1">
+<table class="log" cellpadding="5" cellspacing="0" width="100%"><tr class="a">
+<td class="small">Methods: 10</td>
+<td class="small">LOC: 259</td>
+<td class="small">Statements: 104</td>
+</tr></table>
+<table class="log" cellpadding="5" cellspacing="0" width="100%"><tbody><tr>
+<td class="legendItem" width="0%">Legend:</td>
+<td class="legendValue" width="100%">
+<span class="legendCovered">executed</span><span class="legendUncovered">not executed</span><span class="legendDeadCode">dead code</span>
+</td>
+</tr></tbody></table>
+<table class="log" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<th width="100%">Source file</th>
+<th>Statements</th>
+<th>Methods</th>
+<th width="250" colspan="2" nowrap>Total coverage</th>
+</tr>
+<tr class="a">
+<td>Item.php</td>
+<td>95.2%</td>
+<td>70.0%</td>
+<td>93.0%</td>
+<td><table cellspacing="0" cellpadding="0" border="0" width="100%" style="display: inline"><tr>
+<td class="covered" width="186" height="12"> </td>
+<td class="uncovered" width="14" height="12"> </td>
+</tr></table></td>
+</tr>
+</table>
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="lineCount">1</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">&lt;?php</pre></td>
+</tr>
+<tr>
+<td class="lineCount">2</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">/**</pre></td>
+</tr>
+<tr>
+<td class="lineCount">3</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"> * Activity Item data mapper</pre></td>
+</tr>
+<tr>
+<td class="lineCount">4</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"> *</pre></td>
+</tr>
+<tr>
+<td class="lineCount">5</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"> * @author Lucas CORBEAUX</pre></td>
+</tr>
+<tr>
+<td class="lineCount">6</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"> * @category MaitreCorbeaux</pre></td>
+</tr>
+<tr>
+<td class="lineCount">7</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"> * @package Default</pre></td>
+</tr>
+<tr>
+<td class="lineCount">8</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"> * @subpackage Model</pre></td>
+</tr>
+<tr>
+<td class="lineCount">9</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"> */</pre></td>
+</tr>
+<tr>
+<td class="lineCount">10</td>
+<td class="coverageCount"></td>
+<td class="srcLineClassStart"><pre class="srcLine">class MaitreCorbeaux_Model_Mapper_Activity_Item</pre></td>
+</tr>
+<tr>
+<td class="lineCount">11</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">extends MaitreCorbeaux_Model_Mapper_AbstractMapper</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">12</td>
+<td class="lineCountCovered">1</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">implements MaitreCorbeaux_Model_Mapper_Activity_ItemInterface</pre></td>
+</tr>
+<tr>
+<td class="lineCount">13</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">{</pre></td>
+</tr>
+<tr>
+<td class="lineCount">14</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    /**</pre></td>
+</tr>
+<tr>
+<td class="lineCount">15</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     *</pre></td>
+</tr>
+<tr>
+<td class="lineCount">16</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @var MaitreCorbeaux_Model_Mapper_Activity_SourceInterface</pre></td>
+</tr>
+<tr>
+<td class="lineCount">17</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     */</pre></td>
+</tr>
+<tr>
+<td class="lineCount">18</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    protected $_activitySourceMapper;</pre></td>
+</tr>
+<tr>
+<td class="lineCount">19</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCount">20</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    /**</pre></td>
+</tr>
+<tr>
+<td class="lineCount">21</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * Return a join select between ActivityItem and ActivitySource table</pre></td>
+</tr>
+<tr>
+<td class="lineCount">22</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     *</pre></td>
+</tr>
+<tr>
+<td class="lineCount">23</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @return Zend_Db_Select</pre></td>
+</tr>
+<tr>
+<td class="lineCount">24</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     */</pre></td>
+</tr>
+<tr>
+<td class="lineCount">25</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    protected function _createSelect()</pre></td>
+</tr>
+<tr>
+<td class="lineCount">26</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    {</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">27</td>
+<td class="lineCountCovered">7</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $itemDbTable = $this-&gt;getDbTable();</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">28</td>
+<td class="lineCountCovered">7</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $sourceDbTable = $this-&gt;getActivitySourceMapper()</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">29</td>
+<td class="lineCountCovered">7</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                              -&gt;getDbTable();</pre></td>
+</tr>
+<tr>
+<td class="lineCount">30</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">31</td>
+<td class="lineCountCovered">7</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $dbAdapter = $itemDbTable-&gt;getAdapter();</pre></td>
+</tr>
+<tr>
+<td class="lineCount">32</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountUncovered">33</td>
+<td class="coverageCountUncovered"></td>
+<td class="srcLineUncovered"><pre class="srcLineUncovered">        $itemTableName = $dbAdapter-&gt;quoteIdentifier(</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">34</td>
+<td class="lineCountCovered">7</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            $itemDbTable-&gt;info('name')</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">35</td>
+<td class="lineCountCovered">7</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        );</pre></td>
+</tr>
+<tr>
+<td class="lineCount">36</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountUncovered">37</td>
+<td class="coverageCountUncovered"></td>
+<td class="srcLineUncovered"><pre class="srcLineUncovered">        $sourceTableName = $dbAdapter-&gt;quoteIdentifier(</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">38</td>
+<td class="lineCountCovered">7</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            $sourceDbTable-&gt;info('name')</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">39</td>
+<td class="lineCountCovered">7</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        );</pre></td>
+</tr>
+<tr>
+<td class="lineCount">40</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">41</td>
+<td class="lineCountCovered">7</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $select = $dbAdapter-&gt;select();</pre></td>
+</tr>
+<tr>
+<td class="lineCount">42</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">43</td>
+<td class="lineCountCovered">7</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $cond = "$itemTableName.idActivitySourceActivityItem = "</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">44</td>
+<td class="lineCountCovered">7</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">              . "$sourceTableName.idActivitySource";</pre></td>
+</tr>
+<tr>
+<td class="lineCount">45</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">46</td>
+<td class="lineCountCovered">7</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $select-&gt;from($itemDbTable-&gt;info('name'))</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">47</td>
+<td class="lineCountCovered">7</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">               -&gt;join($sourceDbTable-&gt;info('name'), $cond);</pre></td>
+</tr>
+<tr>
+<td class="lineCount">48</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">49</td>
+<td class="lineCountCovered">7</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        return $select;</pre></td>
+</tr>
+<tr>
+<td class="lineCount">50</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    }</pre></td>
+</tr>
+<tr>
+<td class="lineCount">51</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCount">52</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    /**</pre></td>
+</tr>
+<tr>
+<td class="lineCount">53</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * Create an Activity Item model from a data array</pre></td>
+</tr>
+<tr>
+<td class="lineCount">54</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     *</pre></td>
+</tr>
+<tr>
+<td class="lineCount">55</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @param array $data</pre></td>
+</tr>
+<tr>
+<td class="lineCount">56</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @return MaitreCorbeaux_Model_Activity_Item</pre></td>
+</tr>
+<tr>
+<td class="lineCount">57</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @see MaitreCorbeaux_Model_Mapper_AbstractMapper::createModel()</pre></td>
+</tr>
+<tr>
+<td class="lineCount">58</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     */</pre></td>
+</tr>
+<tr>
+<td class="lineCount">59</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    public function createModel(array $data)</pre></td>
+</tr>
+<tr>
+<td class="lineCount">60</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    {</pre></td>
+</tr>
+<tr>
+<td class="lineCount">61</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">        $cleanData = array(</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">62</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            'id' =&gt; array_key_exists('idActivityItem', $data)</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">63</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                    ? $data['idActivityItem']</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">64</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                    : null,</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">65</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            'title' =&gt; array_key_exists('titleActivityItem', $data)</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">66</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                    ? $data['titleActivityItem']</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">67</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                    : null,</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">68</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            'description' =&gt; array_key_exists('descriptionActivityItem', $data)</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">69</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                    ? $data['descriptionActivityItem']</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">70</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                    : null,</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">71</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            'link' =&gt; array_key_exists('linkActivityItem', $data)</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">72</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                    ? $data['linkActivityItem']</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">73</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                    : null,</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">74</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            'externalId' =&gt; array_key_exists('externalIdActivityItem', $data)</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">75</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                    ? $data['externalIdActivityItem']</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">76</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                    : null,</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">77</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            'publicationDate' =&gt; array_key_exists('publicationDateActivityItem', $data)</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">78</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                    ? new Zend_Date(</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">79</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                        $data['publicationDateActivityItem'],</pre></td>
+</tr>
+<tr>
+<td class="lineCount">80</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">                        'yyyy-MM-dd HH:mm:ss'</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">81</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                    )</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">82</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                    : null</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">83</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        );</pre></td>
+</tr>
+<tr>
+<td class="lineCount">84</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">85</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $model = new MaitreCorbeaux_Model_Activity_Item($cleanData);</pre></td>
+</tr>
+<tr>
+<td class="lineCount">86</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCount">87</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">        // We use isset here, because we want only non-null value</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">88</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        if (isset($data['idActivitySourceActivityItem'])) {</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">89</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            $sourceMapper = $this-&gt;getActivitySourceMapper();</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">90</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            $model-&gt;setSource($sourceMapper-&gt;createModel($data));</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">91</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        }</pre></td>
+</tr>
+<tr>
+<td class="lineCount">92</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">93</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        return $model;</pre></td>
+</tr>
+<tr>
+<td class="lineCount">94</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    }</pre></td>
+</tr>
+<tr>
+<td class="lineCount">95</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCount">96</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    /**</pre></td>
+</tr>
+<tr>
+<td class="lineCount">97</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * Create an Activity Item collection from a data array</pre></td>
+</tr>
+<tr>
+<td class="lineCount">98</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     *</pre></td>
+</tr>
+<tr>
+<td class="lineCount">99</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @param array $data</pre></td>
+</tr>
+<tr>
+<td class="lineCount">100</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @return MaitreCorbeaux_Model_Collection_Activity_Item</pre></td>
+</tr>
+<tr>
+<td class="lineCount">101</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @see MaitreCorbeaux_Model_Mapper_AbstractMapper::createCollection()</pre></td>
+</tr>
+<tr>
+<td class="lineCount">102</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     */</pre></td>
+</tr>
+<tr>
+<td class="lineCount">103</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    public function createCollection(array $data)</pre></td>
+</tr>
+<tr>
+<td class="lineCount">104</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    {</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">105</td>
+<td class="lineCountCovered">7</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $collection = new MaitreCorbeaux_Model_Collection_Activity_Item();</pre></td>
+</tr>
+<tr>
+<td class="lineCount">106</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">107</td>
+<td class="lineCountCovered">7</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        foreach ($data as $row) {</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">108</td>
+<td class="lineCountCovered">7</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            $collection-&gt;add($this-&gt;createModel((array) $row));</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">109</td>
+<td class="lineCountCovered">7</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        }</pre></td>
+</tr>
+<tr>
+<td class="lineCount">110</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">111</td>
+<td class="lineCountCovered">7</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        return $collection;</pre></td>
+</tr>
+<tr>
+<td class="lineCount">112</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    }</pre></td>
+</tr>
+<tr>
+<td class="lineCount">113</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCount">114</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    /**</pre></td>
+</tr>
+<tr>
+<td class="lineCount">115</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     *</pre></td>
+</tr>
+<tr>
+<td class="lineCount">116</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @param string $externalId</pre></td>
+</tr>
+<tr>
+<td class="lineCount">117</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @param MaitreCorbeaux_Model_Activity_Source $source</pre></td>
+</tr>
+<tr>
+<td class="lineCount">118</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @return MaitreCorbeaux_Model_Activity_Item</pre></td>
+</tr>
+<tr>
+<td class="lineCount">119</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @see MaitreCorbeaux_Model_Mapper_Activity_ItemInterface::findExternalId()</pre></td>
+</tr>
+<tr>
+<td class="lineCount">120</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     */</pre></td>
+</tr>
+<tr>
+<td class="lineCount">121</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    public function findByExternalId($externalId, MaitreCorbeaux_Model_Activity_Source $source)</pre></td>
+</tr>
+<tr>
+<td class="lineCount">122</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    {</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">123</td>
+<td class="lineCountCovered">5</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $dbTable = $this-&gt;getDbTable();</pre></td>
+</tr>
+<tr>
+<td class="lineCountUncovered">124</td>
+<td class="coverageCountUncovered"></td>
+<td class="srcLineUncovered"><pre class="srcLineUncovered">        $rowset = $dbTable-&gt;fetchAll(</pre></td>
+</tr>
+<tr>
+<td class="lineCount">125</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">            array(</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">126</td>
+<td class="lineCountCovered">5</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                'externalIdActivityItem = ?' =&gt; $externalId,</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">127</td>
+<td class="lineCountCovered">5</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                'idActivitySourceActivityItem = ?' =&gt; $source-&gt;getId()</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">128</td>
+<td class="lineCountCovered">5</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            )</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">129</td>
+<td class="lineCountCovered">5</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        );</pre></td>
+</tr>
+<tr>
+<td class="lineCount">130</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">131</td>
+<td class="lineCountCovered">5</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        if (!count($rowset)) {</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">132</td>
+<td class="lineCountCovered">3</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            return null;</pre></td>
+</tr>
+<tr>
+<td class="lineCountDeadCode">133</td>
+<td class="coverageCountDeadCode"></td>
+<td class="srcLineDeadCode"><pre class="srcLineDeadCode">        }</pre></td>
+</tr>
+<tr>
+<td class="lineCount">134</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">135</td>
+<td class="lineCountCovered">2</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        return $this-&gt;createModel($rowset-&gt;current()-&gt;toArray());</pre></td>
+</tr>
+<tr>
+<td class="lineCount">136</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    }</pre></td>
+</tr>
+<tr>
+<td class="lineCount">137</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCount">138</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    /**</pre></td>
+</tr>
+<tr>
+<td class="lineCount">139</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     *</pre></td>
+</tr>
+<tr>
+<td class="lineCount">140</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     *</pre></td>
+</tr>
+<tr>
+<td class="lineCount">141</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @param MaitreCorbeaux_Model_Activity_Item $item</pre></td>
+</tr>
+<tr>
+<td class="lineCount">142</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @return MaitreCorbeaux_Model_Mapper_Activity_Item</pre></td>
+</tr>
+<tr>
+<td class="lineCount">143</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @see MaitreCorbeaux_Model_Mapper_Activity_ItemInterface::save()</pre></td>
+</tr>
+<tr>
+<td class="lineCount">144</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     */</pre></td>
+</tr>
+<tr>
+<td class="lineCount">145</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    public function save(MaitreCorbeaux_Model_Activity_Item $item)</pre></td>
+</tr>
+<tr>
+<td class="lineCount">146</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    {</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">147</td>
+<td class="lineCountCovered">2</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $publicationDate = $item-&gt;getPublicationDate();</pre></td>
+</tr>
+<tr>
+<td class="lineCount">148</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">149</td>
+<td class="lineCountCovered">2</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        if (null !== $publicationDate) {</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">150</td>
+<td class="lineCountCovered">2</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            $publicationDate = $publicationDate-&gt;toString('yyyy-MM-dd HH:mm:ss');</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">151</td>
+<td class="lineCountCovered">2</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        }</pre></td>
+</tr>
+<tr>
+<td class="lineCount">152</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCount">153</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">        $data = array(</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">154</td>
+<td class="lineCountCovered">2</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            'titleActivityItem' =&gt; $item-&gt;getTitle(),</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">155</td>
+<td class="lineCountCovered">2</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            'descriptionActivityItem' =&gt; $item-&gt;getDescription(),</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">156</td>
+<td class="lineCountCovered">2</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            'linkActivityItem' =&gt; $item-&gt;getLink(),</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">157</td>
+<td class="lineCountCovered">2</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            'externalIdActivityItem' =&gt; $item-&gt;getExternalId(),</pre></td>
+</tr>
+<tr>
+<td class="lineCount">158</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">            'publicationDateActivityItem' =&gt; $publicationDate</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">159</td>
+<td class="lineCountCovered">2</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        );</pre></td>
+</tr>
+<tr>
+<td class="lineCount">160</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">161</td>
+<td class="lineCountCovered">2</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $source = $item-&gt;getSource();</pre></td>
+</tr>
+<tr>
+<td class="lineCount">162</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCount">163</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">        // If no source model, we don't update the source id</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">164</td>
+<td class="lineCountCovered">2</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        if (null !== $source) {</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">165</td>
+<td class="lineCountCovered">2</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            $data['idActivitySourceActivityItem'] = $source-&gt;getId();</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">166</td>
+<td class="lineCountCovered">2</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        }</pre></td>
+</tr>
+<tr>
+<td class="lineCount">167</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">168</td>
+<td class="lineCountCovered">2</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $dbTable = $this-&gt;getDbTable();</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">169</td>
+<td class="lineCountCovered">2</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $id = $item-&gt;getId();</pre></td>
+</tr>
+<tr>
+<td class="lineCount">170</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">171</td>
+<td class="lineCountCovered">2</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        if (null === $id) {</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">172</td>
+<td class="lineCountCovered">1</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            $id = $dbTable-&gt;insert($data);</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">173</td>
+<td class="lineCountCovered">1</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            $item-&gt;setId($id);</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">174</td>
+<td class="lineCountCovered">1</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        } else {</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">175</td>
+<td class="lineCountCovered">1</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            $dbTable-&gt;update($data, array('idActivityItem = ?' =&gt; $id));</pre></td>
+</tr>
+<tr>
+<td class="lineCount">176</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">        }</pre></td>
+</tr>
+<tr>
+<td class="lineCount">177</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">178</td>
+<td class="lineCountCovered">2</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        return $this;</pre></td>
+</tr>
+<tr>
+<td class="lineCount">179</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    }</pre></td>
+</tr>
+<tr>
+<td class="lineCount">180</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCount">181</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    /**</pre></td>
+</tr>
+<tr>
+<td class="lineCount">182</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     *</pre></td>
+</tr>
+<tr>
+<td class="lineCount">183</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @param int $nbItems</pre></td>
+</tr>
+<tr>
+<td class="lineCount">184</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @return MaitreCorbeaux_Model_Mapper_Activity_Item</pre></td>
+</tr>
+<tr>
+<td class="lineCount">185</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @see MaitreCorbeaux_Model_Mapper_Activity_ItemInterface::fetchLatests()</pre></td>
+</tr>
+<tr>
+<td class="lineCount">186</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     */</pre></td>
+</tr>
+<tr>
+<td class="lineCount">187</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    public function fetchLast($nbItems)</pre></td>
+</tr>
+<tr>
+<td class="lineCount">188</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    {</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">189</td>
+<td class="lineCountCovered">3</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $nbItems = (int) $nbItems;</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">190</td>
+<td class="lineCountCovered">3</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $select = $this-&gt;_createSelect();</pre></td>
+</tr>
+<tr>
+<td class="lineCount">191</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">192</td>
+<td class="lineCountCovered">3</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $select-&gt;order('publicationDateActivityItem DESC')</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">193</td>
+<td class="lineCountCovered">3</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">               -&gt;limit($nbItems);</pre></td>
+</tr>
+<tr>
+<td class="lineCount">194</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">195</td>
+<td class="lineCountCovered">3</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $dbAdapter = $this-&gt;getDbTable()</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">196</td>
+<td class="lineCountCovered">3</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                          -&gt;getAdapter();</pre></td>
+</tr>
+<tr>
+<td class="lineCount">197</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">198</td>
+<td class="lineCountCovered">3</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $data = $dbAdapter-&gt;fetchAll($select);</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">199</td>
+<td class="lineCountCovered">3</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        return $this-&gt;createCollection($data);</pre></td>
+</tr>
+<tr>
+<td class="lineCount">200</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    }</pre></td>
+</tr>
+<tr>
+<td class="lineCount">201</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCount">202</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    /**</pre></td>
+</tr>
+<tr>
+<td class="lineCount">203</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     *</pre></td>
+</tr>
+<tr>
+<td class="lineCount">204</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @param int $offset</pre></td>
+</tr>
+<tr>
+<td class="lineCount">205</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @param int $itemCountPerPage</pre></td>
+</tr>
+<tr>
+<td class="lineCount">206</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @return Zend_Paginator</pre></td>
+</tr>
+<tr>
+<td class="lineCount">207</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @see MaitreCorbeaux_Model_Mapper_Activity_ItemInterface::paginateAll()</pre></td>
+</tr>
+<tr>
+<td class="lineCount">208</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     */</pre></td>
+</tr>
+<tr>
+<td class="lineCount">209</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    public function paginateAll($offset, $itemCountPerPage)</pre></td>
+</tr>
+<tr>
+<td class="lineCount">210</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    {</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">211</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $select = $this-&gt;_createSelect();</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">212</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $select-&gt;order('publicationDateActivityItem DESC');</pre></td>
+</tr>
+<tr>
+<td class="lineCount">213</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">214</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        return $this-&gt;_createPaginator($select, $offset, $itemCountPerPage);</pre></td>
+</tr>
+<tr>
+<td class="lineCount">215</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    }</pre></td>
+</tr>
+<tr>
+<td class="lineCount">216</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCount">217</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    /**</pre></td>
+</tr>
+<tr>
+<td class="lineCount">218</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     *</pre></td>
+</tr>
+<tr>
+<td class="lineCount">219</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @return Zend_Db_Table_Abstract</pre></td>
+</tr>
+<tr>
+<td class="lineCount">220</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @see MaitreCorbeaux_Model_Mapper_Activity_Item::getDbTable()</pre></td>
+</tr>
+<tr>
+<td class="lineCount">221</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     */</pre></td>
+</tr>
+<tr>
+<td class="lineCount">222</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    public function getDbTable()</pre></td>
+</tr>
+<tr>
+<td class="lineCount">223</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    {</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">224</td>
+<td class="lineCountCovered">14</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        if (null === $this-&gt;_dbTable) {</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">225</td>
+<td class="lineCountCovered">14</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            $this-&gt;_dbTable =</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">226</td>
+<td class="lineCountCovered">14</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                new MaitreCorbeaux_Model_DbTable_Activity_Item();</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">227</td>
+<td class="lineCountCovered">14</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        }</pre></td>
+</tr>
+<tr>
+<td class="lineCount">228</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">229</td>
+<td class="lineCountCovered">14</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        return $this-&gt;_dbTable;</pre></td>
+</tr>
+<tr>
+<td class="lineCount">230</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    }</pre></td>
+</tr>
+<tr>
+<td class="lineCount">231</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCount">232</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    /**</pre></td>
+</tr>
+<tr>
+<td class="lineCount">233</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     *</pre></td>
+</tr>
+<tr>
+<td class="lineCount">234</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @return MaitreCorbeaux_Model_Mapper_Activity_SourceInterface</pre></td>
+</tr>
+<tr>
+<td class="lineCount">235</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @see MaitreCorbeaux_Model_Mapper_Activity_Item::getDbTable()</pre></td>
+</tr>
+<tr>
+<td class="lineCount">236</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     */</pre></td>
+</tr>
+<tr>
+<td class="lineCount">237</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    public function getActivitySourceMapper()</pre></td>
+</tr>
+<tr>
+<td class="lineCount">238</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    {</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">239</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        if (null === $this-&gt;_activitySourceMapper) {</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">240</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            $this-&gt;_activitySourceMapper =</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">241</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                new MaitreCorbeaux_Model_Mapper_Activity_Source();</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">242</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        }</pre></td>
+</tr>
+<tr>
+<td class="lineCount">243</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">244</td>
+<td class="lineCountCovered">9</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        return $this-&gt;_activitySourceMapper;</pre></td>
+</tr>
+<tr>
+<td class="lineCount">245</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    }</pre></td>
+</tr>
+<tr>
+<td class="lineCount">246</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCount">247</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    /**</pre></td>
+</tr>
+<tr>
+<td class="lineCount">248</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     *</pre></td>
+</tr>
+<tr>
+<td class="lineCount">249</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @param MaitreCorbeaux_Model_Mapper_Activity_SourceInterface $value</pre></td>
+</tr>
+<tr>
+<td class="lineCount">250</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     * @return MaitreCorbeaux_Model_Mapper_Activity_ItemInterface</pre></td>
+</tr>
+<tr>
+<td class="lineCount">251</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">     */</pre></td>
+</tr>
+<tr>
+<td class="lineCount">252</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    public function setActivitySourceMapper(</pre></td>
+</tr>
+<tr>
+<td class="lineCount">253</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">        MaitreCorbeaux_Model_Mapper_Activity_SourceInterface $value</pre></td>
+</tr>
+<tr>
+<td class="lineCount">254</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    )</pre></td>
+</tr>
+<tr>
+<td class="lineCount">255</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    {</pre></td>
+</tr>
+<tr>
+<td class="lineCountUncovered">256</td>
+<td class="coverageCountUncovered"></td>
+<td class="srcLineUncovered"><pre class="srcLineUncovered">        $this-&gt;_activitySourceMapper = $value;</pre></td>
+</tr>
+<tr>
+<td class="lineCountUncovered">257</td>
+<td class="coverageCountUncovered"></td>
+<td class="srcLineUncovered"><pre class="srcLineUncovered">        return $this;</pre></td>
+</tr>
+<tr>
+<td class="lineCount">258</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    }</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">259</td>
+<td class="lineCountCovered">1</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">}</pre></td>
+</tr>
+</table>
+<br><table width="100%">
+<tr><td><hr noshade size="1"></td></tr>
+<tr><td class="small">Report generated at 2011-04-30T20:04:14+02:00</td></tr>
+</table>
+</body>
+</html>

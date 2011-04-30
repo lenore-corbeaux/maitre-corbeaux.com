@@ -1,6 +1,12 @@
 <?php
 /**
  * Index Controller
+ * 
+ * Display the home page
+ * 
+ * @category MaitreCorbeaux
+ * @package Default
+ * @subpackage Controller
  */
 class IndexController extends Zend_Controller_Action
 {

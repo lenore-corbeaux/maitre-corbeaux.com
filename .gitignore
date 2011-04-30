@@ -2,6 +2,11 @@
 nbproject/
 catalog.xml
 
+# Zend Studio project files
+.settings/
+.buildpath
+.project
+
 # Zend Framework
 library/Zend
 
@@ -16,4 +21,3 @@ public/cached/*
 
 # PHPUnit temporary data
 tests/_files/emails/*
-tests/log/*

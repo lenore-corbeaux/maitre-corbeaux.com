@@ -1,0 +1,323 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<LINK REL="stylesheet" TYPE="text/css" TITLE="Style" href="../../stylesheet.css">
+</head>
+<body>
+<table border="0" cellpadding="0" cellspacing="0" width="100%">
+<tr>
+<td class="bannercell" rowspan="2"><a href="http://phing.info/"><img src="http://phing.info/images/phing.gif" alt="http://phing.info/" align="left" border="0"></a></td>
+<td style="text-align:right"><h2>Source Code Coverage</h2></td>
+</tr>
+<tr><td style="text-align:right">Designed for use with <a href="http://pear.php.net/package/PHPUnit2">PHPUnit2</a>, <a href="http://www.xdebug.org/">Xdebug</a> and <a href="http://phing.info/">Phing</a>.</td></tr>
+</table>
+<hr size="1">
+<table class="log" cellpadding="5" cellspacing="0" width="100%"><tr class="a">
+<td class="small">Methods: 1</td>
+<td class="small">LOC: 55</td>
+<td class="small">Statements: 33</td>
+</tr></table>
+<table class="log" cellpadding="5" cellspacing="0" width="100%"><tbody><tr>
+<td class="legendItem" width="0%">Legend:</td>
+<td class="legendValue" width="100%">
+<span class="legendCovered">executed</span><span class="legendUncovered">not executed</span><span class="legendDeadCode">dead code</span>
+</td>
+</tr></tbody></table>
+<table class="log" cellpadding="5" cellspacing="0" width="100%">
+<tr>
+<th width="100%">Source file</th>
+<th>Statements</th>
+<th>Methods</th>
+<th width="250" colspan="2" nowrap>Total coverage</th>
+</tr>
+<tr class="a">
+<td>Contact.php</td>
+<td>100.0%</td>
+<td>100.0%</td>
+<td>100.0%</td>
+<td><table cellspacing="0" cellpadding="0" border="0" width="100%" style="display: inline"><tr><td class="fullcover" width="200" height="12"> </td></tr></table></td>
+</tr>
+</table>
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr>
+<td class="lineCount">1</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">&lt;?php</pre></td>
+</tr>
+<tr>
+<td class="lineCount">2</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">/**</pre></td>
+</tr>
+<tr>
+<td class="lineCount">3</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"> * Contact form</pre></td>
+</tr>
+<tr>
+<td class="lineCount">4</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"> *</pre></td>
+</tr>
+<tr>
+<td class="lineCount">5</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"> * @author Lucas CORBEAUX</pre></td>
+</tr>
+<tr>
+<td class="lineCount">6</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"> * @category MaitreCorbeaux</pre></td>
+</tr>
+<tr>
+<td class="lineCount">7</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"> * @package Default</pre></td>
+</tr>
+<tr>
+<td class="lineCount">8</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"> * @subpackage Form</pre></td>
+</tr>
+<tr>
+<td class="lineCount">9</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"> * @see Zend_Form</pre></td>
+</tr>
+<tr>
+<td class="lineCount">10</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"> */</pre></td>
+</tr>
+<tr>
+<td class="lineCount">11</td>
+<td class="coverageCount"></td>
+<td class="srcLineClassStart"><pre class="srcLine">class MaitreCorbeaux_Form_Contact extends Zend_Form</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">12</td>
+<td class="lineCountCovered">1</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">{</pre></td>
+</tr>
+<tr>
+<td class="lineCount">13</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    public function init()</pre></td>
+</tr>
+<tr>
+<td class="lineCount">14</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    {</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">15</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $this-&gt;setMethod('post');</pre></td>
+</tr>
+<tr>
+<td class="lineCount">16</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">17</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $this-&gt;addElement('text', 'email', array(</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">18</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            'label' =&gt; 'Votre adresse email* :',</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">19</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            'required' =&gt; true,</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">20</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            'validators' =&gt; array('EmailAddress')</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">21</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        ));</pre></td>
+</tr>
+<tr>
+<td class="lineCount">22</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">23</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $this-&gt;addElement('text', 'subject', array(</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">24</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            'label' =&gt; 'Objet de votre message* :',</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">25</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            'required' =&gt; true,</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">26</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            'validators' =&gt; array(array('StringLength', false, array(5, 50)))</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">27</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        ));</pre></td>
+</tr>
+<tr>
+<td class="lineCount">28</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">29</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $this-&gt;addElement('textarea', 'body', array(</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">30</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            'label' =&gt; 'Votre message* :',</pre></td>
+</tr>
+<tr>
+<td class="lineCount">31</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">            'required' =&gt; true</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">32</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        ));</pre></td>
+</tr>
+<tr>
+<td class="lineCount">33</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">34</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $this-&gt;addElement('checkbox', 'copy', array(</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">35</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            'label' =&gt; 'Je souhaite recevoir une copie de cet email :',</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">36</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            'decorators' =&gt; array('Label',</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">37</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                                  'ViewHelper',</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">38</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                                  array('HtmlTag',</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">39</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                                        array('tag' =&gt; 'dd',</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">40</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                                              'id' =&gt; 'copy-element')))</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">41</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        ));</pre></td>
+</tr>
+<tr>
+<td class="lineCount">42</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">43</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $this-&gt;addElement('captcha', 'captcha', array(</pre></td>
+</tr>
+<tr>
+<td class="lineCount">44</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">            'captcha' =&gt; 'ReCaptcha'</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">45</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        ));</pre></td>
+</tr>
+<tr>
+<td class="lineCount">46</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine"></pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">47</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        $this-&gt;addElement('submit', 'send', array(</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">48</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            'label' =&gt; 'Envoyer',</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">49</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">            'decorators' =&gt; array('ViewHelper',</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">50</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                                  array('HtmlTag',</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">51</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                                        array('tag' =&gt; 'dd',</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">52</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">                                              'id' =&gt; 'send-element')))</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">53</td>
+<td class="lineCountCovered">4</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">        ));</pre></td>
+</tr>
+<tr>
+<td class="lineCount">54</td>
+<td class="coverageCount"></td>
+<td><pre class="srcLine">    }</pre></td>
+</tr>
+<tr>
+<td class="lineCountCovered">55</td>
+<td class="lineCountCovered">1</td>
+<td class="srcLineCovered"><pre class="srcLineCovered">}</pre></td>
+</tr>
+</table>
+<br><table width="100%">
+<tr><td><hr noshade size="1"></td></tr>
+<tr><td class="small">Report generated at 2011-04-30T20:04:14+02:00</td></tr>
+</table>
+</body>
+</html>
