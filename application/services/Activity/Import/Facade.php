@@ -62,7 +62,8 @@ implements MaitreCorbeaux_Service_Activity_Import_ImportInterface
      */
     public function import()
     {
-        $service = new MaitreCorbeaux_Service_Activity_Item();
+        $serviceItem = new MaitreCorbeaux_Service_Activity_Item();
+        $serviceSearch = new MaitreCorbeaux_Service_Activity_Search();
         $sources = $this->getSources();
 
         $this->_log('Cleaning activity cache');
@@ -86,7 +87,8 @@ implements MaitreCorbeaux_Service_Activity_Import_ImportInterface
                 foreach ($items as $item) {
                     $this->_log('Import item ' . $item->getExternalId());
                     $item->setSource($source);
-                    $service->import($item);
+                    $serviceItem->import($item);
+                    $serviceSearch->indexItem($item);
                 }
             } catch (MaitreCorbeaux_Service_Activity_Import_Exception $e) {
                 $this->_log($e, Zend_Log::CRIT);

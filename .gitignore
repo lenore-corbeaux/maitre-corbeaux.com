@@ -1,6 +1,7 @@
-# Netbeans project files
-nbproject/
-catalog.xml
+# Zend Studio project files
+.settings/
+.project
+.buildpath
 
 # Zend Framework
 library/Zend
@@ -11,8 +12,13 @@ application/configs/application.ini
 # Application's data
 data/cache/*
 data/logs/*
+data/twitter/access.token
 public/cached/*
+data/lucene/*
 
 # PHPUnit temporary data
 tests/_files/emails/*
 tests/log/*
+
+# Mac OS .DS_Store files
+.DS_Store

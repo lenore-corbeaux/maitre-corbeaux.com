@@ -109,11 +109,11 @@ extends MaitreCorbeaux_Service_AbstractService
         $source = $item->getSource();
         
         $itemId = Zend_Search_Lucene_Field::unIndexed(
-        	'itemId', $item->getId()
+            'itemId', $item->getId()
         );
         
         $sourceName = Zend_Search_Lucene_Field::unStored(
-        	'sourceName', $source->getName()
+            'sourceName', $source->getName()
         );
         
         $document->addField($itemId)

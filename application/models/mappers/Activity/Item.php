@@ -213,6 +213,39 @@ implements MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
 
         return $this->_createPaginator($select, $offset, $itemCountPerPage);
     }
+    
+    /**
+     *
+     * @param array $ids
+     * @param int $offset
+     * @param int $itemCountPerPage
+     * @return Zend_Paginator
+     * @see MaitreCorbeaux_Model_Mapper_Activity_ItemInterface::paginateAllIn()
+     */
+    public function paginateAllIn(array $ids, $offset, $itemCountPerPage)
+    {
+        $idSet = implode(',', $ids);
+        $select = $this->_createSelect();
+        $select->where('idActivityItem IN (?)', $ids)
+               ->order("FIND_IN_SET(idActivityItem, '$idSet')");
+
+        return $this->_createPaginator($select, $offset, $itemCountPerPage);
+    }
+    
+    /**
+     * 
+     * @return MaitreCorbeaux_Model_Collection_Activity_Item
+     * @see MaitreCorbeaux_Model_Mapper_Activity_ItemInterface::fetchAll()
+     */
+    public function fetchAll()
+    {
+        $select = $this->_createSelect();
+        $results = $this->getDbTable()
+                        ->getAdapter()
+                        ->fetchAll($select);
+                        
+        return $this->createCollection($results);
+    }
 
     /**
      *

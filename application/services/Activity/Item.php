@@ -74,6 +74,18 @@ extends MaitreCorbeaux_Service_AbstractService
 
         return $mapper->fetchLast($nbItems);
     }
+    
+    /**
+     * Returns number of items by page for paginated elements
+     * 
+     * @return int
+     */
+    protected function _getPaginatorNbItems()
+    {
+        $bootstrap = $this->getBootstrap();
+        $config = $bootstrap->getOption('activityItem');
+        return $config['nbPaginator'];
+    }
 
     /**
      * Returns a paginator of Activity Items
@@ -83,12 +95,36 @@ extends MaitreCorbeaux_Service_AbstractService
      */
     public function paginateAll($page)
     {
-        $bootstrap = $this->getBootstrap();
-        $config = $bootstrap->getOption('activityItem');
-        $nbItems = $config['nbPaginator'];
+        $nbItems = $this->_getPaginatorNbItems();
         $mapper = $this->getMapper();
 
         return $mapper->paginateAll($page, $nbItems);
+    }
+    
+    /**
+     * Returns a paginator of selected Activity Items
+     *
+     * @param array $ids
+     * @param int $page
+     * @return Zend_Paginator
+     */
+    public function paginateAllIn(array $ids, $page)
+    {
+        $nbItems = $this->_getPaginatorNbItems();
+        $mapper = $this->getMapper();
+
+        return $mapper->paginateAllIn($ids, $page, $nbItems);
+    }
+    
+    /**
+     * Returns every of Activity Items
+     *
+     * @return MaitreCorbeaux_Model_Collection_Activity_Item
+     */
+    public function fetchAll()
+    {
+        $mapper = $this->getMapper();
+        return $mapper->fetchAll();
     }
 
     /**

@@ -47,6 +47,23 @@ interface MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
     public function paginateAll($offset, $itemCountPerPage);
 
     /**
+     * Returns a paginator of all desired Activity Items
+     *
+     * @param array $ids
+     * @param int $offset
+     * @param int $itemCountPerPage
+     * @return Zend_Paginator
+     */
+    public function paginateAllIn(array $ids, $offset, $itemCountPerPage);
+    
+    /**
+     * Returns every Activity Items
+     * 
+     * @return MaitreCorbeaux_Model_Collection_Activity_Item
+     */
+    public function fetchAll();
+
+    /**
      *
      * @return MaitreCorbeaux_Model_Mapper_Activity_SourceInterface
      */

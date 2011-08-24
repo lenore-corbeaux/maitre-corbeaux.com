@@ -14,7 +14,9 @@
     <?php else: ?>
     <?php echo $page; ?>
     <?php endif; ?>
+    <?php if (isset($this->next)): ?>
     |
+    <?php endif; ?>
     <?php endforeach; ?>
     <?php if (isset($this->next)): ?>
     <a href="<?php echo $this->url(array('page' => $this->next)); ?>">&gt;</a>

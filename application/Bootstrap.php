@@ -49,4 +49,21 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         Zend_View_Helper_PaginationControl::setDefaultViewPartial('_pagination-control.phtml');
         Zend_Paginator::setDefaultScrollingStyle('Elastic');
     }
+    
+    /**
+     * Initialize Lucene Index
+     * 
+     * @return Zend_Search_Lucene_Interface
+     */
+    protected function _initLuceneIndex()
+    {
+        $options = $this->getOption('lucene');
+        
+        if (!isset($options['indexDir'])) {
+            return null;
+        }
+        
+        $dir = $options['indexDir'];
+        return Zend_Search_Lucene::open($dir);
+    }
 }
