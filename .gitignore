@@ -19,5 +19,8 @@ data/logs/*
 data/twitter/access.token
 public/cached/*
 
+# Docs and QA reports
+docs
+
 # PHPUnit temporary data
 tests/_files/emails/*
