@@ -72,7 +72,7 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
      */
     protected function _initProfile()
     {
-        $this->bootstrap('view');
+        $this->bootstrap(array('locale', 'view'));
 
         $profile = new MaitreCorbeaux_Model_Profile();
         $profile->setBirthDate(new Zend_Date('12-08-1983'));
