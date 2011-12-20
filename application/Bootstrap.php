@@ -64,4 +64,21 @@ class Bootstrap extends Zend_Application_Bootstrap_Bootstrap
         $options = $this->getOption('twitter');
         return $options;
     }
+
+    /**
+     * Initialize profile
+     *
+     * @return MaitreCorbeaux_Model_Profile
+     */
+    protected function _initProfile()
+    {
+        $this->bootstrap('view');
+
+        $profile = new MaitreCorbeaux_Model_Profile();
+        $profile->setBirthDate(new Zend_Date('12-08-1983'));
+
+        $view = $this->getResource('view');
+        $view->profile = $profile;
+        return $profile;
+    }
 }
