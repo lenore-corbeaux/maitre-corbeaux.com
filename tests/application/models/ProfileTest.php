@@ -1,9 +1,9 @@
 <?php
 /**
- * Test class for MaitreCorbeaux_Model_Activity_Profile
+ * Test class for MaitreCorbeaux_Model_Profile
  * 
  */
-class MaitreCorbeaux_Model_Activity_ProfileTest extends PHPUnit_Framework_TestCase
+class MaitreCorbeaux_Model_ProfileTest extends PHPUnit_Framework_TestCase
 {
     /**
      * Model under test
