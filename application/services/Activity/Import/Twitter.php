@@ -36,14 +36,16 @@ implements MaitreCorbeaux_Service_Activity_Import_ImportInterface
     {
         $collection = new MaitreCorbeaux_Model_Collection_Activity_Item();
         $twitter = $this->getServiceTwitter();
-        
-        if (null === $twitter->account->verifyCredentials()) {
+        $user = $twitter->account->verifyCredentials();
+
+        if (null === $user) {
             throw new MaitreCorbeaux_Service_Activity_Import_Exception(
                 'Unable to connect to Twitter REST API'
             );
         }
 
         $options = array(
+            'user_id' => (string) $user->id,
             'count' => 200,
             'trim_user' => 1,
             'include_rts' => 1
