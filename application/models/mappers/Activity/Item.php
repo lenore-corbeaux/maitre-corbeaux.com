@@ -223,11 +223,16 @@ implements MaitreCorbeaux_Model_Mapper_Activity_ItemInterface
      * @see MaitreCorbeaux_Model_Mapper_Activity_ItemInterface::paginateAllIn()
      */
     public function paginateAllIn(array $ids, $offset, $itemCountPerPage)
-    {
+    {   
         $idSet = implode(',', $ids);
         $select = $this->_createSelect();
-        $select->where('idActivityItem IN (?)', $ids)
-               ->order("FIND_IN_SET(idActivityItem, '$idSet')");
+
+        if (empty($ids)) {
+            $select->where('0');
+        } else {
+            $select->where('idActivityItem IN (?)', $ids)
+                   ->order("FIND_IN_SET(idActivityItem, '$idSet')");
+        }   
 
         return $this->_createPaginator($select, $offset, $itemCountPerPage);
     }

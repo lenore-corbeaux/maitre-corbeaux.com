@@ -287,6 +287,14 @@ class MaitreCorbeaux_Model_Mapper_Activity_ItemTest extends DatabaseTestCase
         $this->assertEquals($source1, $collection[0]->getSource());
         $this->assertEquals($source3, $collection[1]->getSource());
     }
+    
+    public function testPaginateAllInReturnsAllItemsIfNoId()
+    {
+        $paginator = $this->_mapper->paginateAllIn(array(), 0, 2);
+        $collection = $paginator->getCurrentItems();
+
+        $this->assertEquals(0, count($collection));
+    }
 
     /**
      * TestCase tear down
