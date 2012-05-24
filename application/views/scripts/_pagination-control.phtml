@@ -1,6 +1,6 @@
 <div class="pagination-control">
     <div class="header">
-        Page <?php echo $this->current; ?> sur <?php echo $this->last; ?>
+        Page <?php echo $this->current; ?> sur <?php echo max($this->last, 1); ?>
     </div>
     <?php if (isset($this->previous)): ?>
     <a href="<?php echo $this->url(array('page' => $this->first)); ?>">&lt;&lt;</a>
@@ -14,7 +14,9 @@
     <?php else: ?>
     <?php echo $page; ?>
     <?php endif; ?>
+    <?php if (isset($this->next)): ?>
     |
+    <?php endif; ?>
     <?php endforeach; ?>
     <?php if (isset($this->next)): ?>
     <a href="<?php echo $this->url(array('page' => $this->next)); ?>">&gt;</a>

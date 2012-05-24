@@ -1,5 +1,8 @@
 <h3>Activité Internet</h3>
 <p class="terminal">Retrouvez sur cette page toute mon activité Internet.</p>
+<?php if (null !== $this->query): ?>
+<p>Résultats pour la recherche "<?php echo $this->escape($this->query); ?>" (par ordre de pertinence).</p>
+<?php endif; ?>
 <hr class="separator"/>
 <ul class="activity">
     <?php foreach ($this->paginator as $item): ?>

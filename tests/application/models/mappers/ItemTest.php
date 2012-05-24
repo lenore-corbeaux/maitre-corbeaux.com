@@ -216,6 +216,30 @@ class MaitreCorbeaux_Model_Mapper_Activity_ItemTest extends DatabaseTestCase
         $this->assertEquals($source3, $collection[1]->getSource());
     }
 
+    public function testFetchAllItemsReturnsEveryItems()
+    {
+        $collection = $this->_mapper->fetchAll();
+        $this->assertInstanceOf(
+            'MaitreCorbeaux_Model_Collection_Activity_Item', $collection
+        );
+
+        $this->assertEquals(4, count($collection));
+    }
+
+    /**
+     *
+     * @dataProvider activitySourcesProvider
+     */
+    public function testFetchAllItemsJoinActivitySources($source1, $source3)
+    {
+        $collection = $this->_mapper->fetchLast(2);
+        $source = $collection->current()->getSource();
+        $class = 'MaitreCorbeaux_Model_Activity_Source';
+        
+        $this->assertInstanceOf($class, $source);
+        $this->assertNotNull($source->getId());
+    }
+
     public function testPaginateAllItems()
     {
         $paginator = $this->_mapper->paginateAll(1, 2);
@@ -240,6 +264,36 @@ class MaitreCorbeaux_Model_Mapper_Activity_ItemTest extends DatabaseTestCase
 
         $this->assertEquals($source1, $collection[0]->getSource());
         $this->assertEquals($source3, $collection[1]->getSource());
+    }
+    
+    public function testPaginateAllInItemsReturnsItemsInDesiredOrder()
+    {
+        $paginator = $this->_mapper->paginateAllIn(array(3, 1), 0, 2);
+        $collection = $paginator->getCurrentItems();
+        
+        $this->assertEquals(3, $collection[0]->getId());
+        $this->assertEquals(1, $collection[1]->getId());
+    }
+
+    /**
+     *
+     * @dataProvider activitySourcesProvider
+     */
+    public function testPaginateAllInJoinActivitySources($source1, $source3)
+    {
+        $paginator = $this->_mapper->paginateAllIn(array(2, 3), 0, 2);
+        $collection = $paginator->getCurrentItems();
+
+        $this->assertEquals($source1, $collection[0]->getSource());
+        $this->assertEquals($source3, $collection[1]->getSource());
+    }
+    
+    public function testPaginateAllInReturnsAllItemsIfNoId()
+    {
+        $paginator = $this->_mapper->paginateAllIn(array(), 0, 2);
+        $collection = $paginator->getCurrentItems();
+
+        $this->assertEquals(0, count($collection));
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 /**
- * Import Activity Items from Activity Sources
+ * Fills Lucene Index from data
  *
  * @author Lucas CORBEAUX
  * @category MaitreCorbeaux
@@ -12,5 +12,8 @@ require_once 'bootstrap.php';
 $frontController = $bootstrap->getResource('FrontController');
 $frontController->setParam('bootstrap', $bootstrap);
 
-$service = new MaitreCorbeaux_Service_Activity_Import_Facade();
-$service->import();
+$serviceItem = new MaitreCorbeaux_Service_Activity_Item();
+$items = $serviceItem->fetchAll();
+
+$serviceSearch = new MaitreCorbeaux_Service_Activity_Search();
+$serviceSearch->indexItems($items);

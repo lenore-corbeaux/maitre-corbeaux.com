@@ -31,6 +31,13 @@
     <div id="content">
         <?php echo $this->layout()->content; ?>
     </div>
+    <div id="search">
+        <form id="form-search" method="get" action="<?php echo $this->url(array('query' => ''), 'search', true); ?>">
+            <h3><?php echo $this->formLabel('query', 'Rechercher sur le site'); ?></h3>
+            <fieldset><?php echo $this->formText('query', $this->query); ?>
+            <?php echo $this->formSubmit('search-submit', 'Valider'); ?></fieldset>
+        </form>
+    </div>
     <ul id="infos-right">
         <li><h3>Informations sur le profil</h3></li>
         <li>Lucas CORBEAUX</li>
@@ -57,5 +64,6 @@
             </a>
         </li>
     </ul>
+    <?php echo $this->inlineScript()->appendFile('/scripts/search.js'); ?>
 </body>
 </html>

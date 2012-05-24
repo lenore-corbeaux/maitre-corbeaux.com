@@ -32,8 +32,16 @@ class ActivityController extends Zend_Controller_Action
              );
         
         $page = $this->_getParam('page');
-        $service = new MaitreCorbeaux_Service_Activity_Item();
-        $this->view->paginator = $service->paginateAll($page);
+        
+        if ($this->_hasParam('query')) {
+            $query = $this->_getParam('query');
+            $service = new MaitreCorbeaux_Service_Activity_Search();
+            $this->view->paginator = $service->searchItems($query, $page);
+            $this->view->query = $query;
+        } else {
+            $service = new MaitreCorbeaux_Service_Activity_Item();
+            $this->view->paginator = $service->paginateAll($page);
+        }
     }
 }
 
