@@ -38,12 +38,12 @@ extends MaitreCorbeaux_Service_AbstractService
 
     /**
      *
-     * @param MaitreCorbeaux_Model_Mapper_Abstract $value
+     * @param MaitreCorbeaux_Model_Mapper_AbstractMapper $value
      * @return MaitreCorbeaux_Service_Activity_Source
      * @see MaitreCorbeaux_Service_AbstractService::setMapper()
      */
     public function setMapper(
-        MaitreCorbeaux_Model_Mapper_Abstract $value
+        MaitreCorbeaux_Model_Mapper_AbstractMapper $value
     )
     {
         $this->_mapper = $value;

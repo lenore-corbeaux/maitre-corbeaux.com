@@ -32,7 +32,9 @@
 		</coverage-setup>
 		<phpunit bootstrap="./tests/bootstrap.php"
          		 codecoverage="true"
-         		 printsummary="true">
+         		 printsummary="true"
+         		 haltonerror="true"
+         		 haltonfailure="true">
          	<formatter todir="./docs/tests/reports" type="plain"/>
 			<batchtest>
 				<fileset dir="./tests">
@@ -74,8 +76,8 @@
 	</target>
 	<!-- BUILD TARGET -->
 	<target name="build" depends="prepare">
+		<phingcall target="apidocs" />
 		<phingcall target="lint" />
 		<phingcall target="unittests" />
-		<phingcall target="apidocs" />
 	</target>
 </project>

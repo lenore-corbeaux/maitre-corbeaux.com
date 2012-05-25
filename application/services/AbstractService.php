@@ -62,10 +62,10 @@ abstract class MaitreCorbeaux_Service_AbstractService
 
     /**
      *
-     * @param MaitreCorbeaux_Model_Mapper_Abstract $value
+     * @param MaitreCorbeaux_Model_Mapper_AbstractMapper $value
      * @return MaitreCorbeaux_Service_AbstractService
      */
-    public  function setMapper(MaitreCorbeaux_Model_Mapper_Abstract $value)
+    public  function setMapper(MaitreCorbeaux_Model_Mapper_AbstractMapper $value)
     {
         $this->_mapper = $value;
         return $this;
