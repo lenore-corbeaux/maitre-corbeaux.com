@@ -88,6 +88,7 @@ implements MaitreCorbeaux_Service_Activity_Import_ImportInterface
                     $this->_log('Import item ' . $item->getExternalId());
                     $item->setSource($source);
                     $serviceItem->import($item);
+                    $this->_log('Index item ' . $item->getExternalId());
                     $serviceSearch->indexItem($item);
                 }
             } catch (MaitreCorbeaux_Service_Activity_Import_Exception $e) {

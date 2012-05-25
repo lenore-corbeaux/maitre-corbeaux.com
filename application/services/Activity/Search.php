@@ -77,11 +77,17 @@ extends MaitreCorbeaux_Service_AbstractService
      */
     public function indexItem(MaitreCorbeaux_Model_Activity_Item $item)
     {
+        $index = $this->getIndex(); 
+        $hits = $index->find('itemId:' . $item->getId());
+
+        if (count($hits)) {
+            return $this;
+        }
+
         $document = $this->createDocumentFromItem($item);
         
         if (null !== $document) {
-            $this->getIndex()
-                 ->addDocument($document);
+            $index->addDocument($document);
         }
 
         return $this;
@@ -108,7 +114,7 @@ extends MaitreCorbeaux_Service_AbstractService
         $document = Zend_Search_Lucene_Document_Html::loadHTML($html);
         $source = $item->getSource();
         
-        $itemId = Zend_Search_Lucene_Field::unIndexed(
+        $itemId = Zend_Search_Lucene_Field::keyword(
             'itemId', $item->getId()
         );
         

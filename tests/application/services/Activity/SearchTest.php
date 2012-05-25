@@ -106,6 +106,27 @@ extends PHPUnit_Framework_TestCase
     /**
      * @dataProvider itemProvider
      */
+    public function testIndexItemsDontAddAlreadyExistingItem($item)
+    {
+        $items = new MaitreCorbeaux_Model_Collection_Activity_Item();
+        $items->add($item);
+                   
+        $index = $this->_service->getIndex();
+
+        $index->expects($this->once())
+              ->method('find')
+              ->with($this->equalTo('itemId:' . $item->getId()))
+              ->will($this->returnValue(array(1)));
+        
+        $index->expects($this->never())
+              ->method('addDocument');
+        
+        $this->_service->indexItems($items);
+    }
+    
+    /**
+     * @dataProvider itemProvider
+     */
     public function testCreateDocumentFromItemReturnsLuceneDocument($item)
     {
         $document = $this->_service
