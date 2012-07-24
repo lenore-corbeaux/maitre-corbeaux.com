@@ -24,6 +24,13 @@ extends MaitreCorbeaux_Model_AbstractModel
      * @var Zend_Date
      */
     protected $_birthDate;
+    
+    /**
+     * Profile first work date
+     * 
+     * @var Zend_Date
+     */
+    protected $_firstWorkDate;
 
     /**
      * Profile age
@@ -31,6 +38,13 @@ extends MaitreCorbeaux_Model_AbstractModel
      * @var int
      */
     protected $_age;
+
+    /**
+     * Profile experience
+     *
+     * @var int
+     */
+    protected $_experience;
 
     /**
      *
@@ -78,6 +92,26 @@ extends MaitreCorbeaux_Model_AbstractModel
 
     /**
      *
+     * @return Zend_Date
+     */
+    public function getFirstWorkDate()
+    {
+        return $this->_firstWorkDate;
+    }
+
+    /**
+     *
+     * @param Zend_Date $date
+     * @return MaitreCorbeaux_Model_Activity_Profile
+     */
+    public function setFirstWorkDate(Zend_Date $date)
+    {
+        $this->_firstWorkDate = $date;
+        return $this;
+    }
+
+    /**
+     *
      * @return int
      */
     public function getAge()
@@ -86,10 +120,13 @@ extends MaitreCorbeaux_Model_AbstractModel
 
         if (null === $this->_age && null !== $birthDate) {
             $date = $this->getDate();
+            
             $measureDate = new Zend_Measure_Time($date->getTimestamp());
-            $measureBirthDate = new Zend_Measure_Time($birthDate->getTimestamp());
-            $measureDate->sub($measureBirthDate);
-            $this->_age = (int) $measureDate->convertTo(Zend_Measure_Time::YEAR);
+            $measureBirth = new Zend_Measure_Time($birthDate->getTimestamp());
+            $measureDate->sub($measureBirth);
+            
+            $this->_age =
+                (int) $measureDate->convertTo(Zend_Measure_Time::YEAR);
         }
 
         return $this->_age;
@@ -103,6 +140,39 @@ extends MaitreCorbeaux_Model_AbstractModel
     public function setAge($age)
     {
         $this->_age = (int) $age;
+        return $this;
+    }
+
+    /**
+     *
+     * @return int
+     */
+    public function getExperience()
+    {
+        $workDate = $this->getFirstWorkDate();
+        
+        if (null === $this->_experience && null != $workDate) {
+            $date = $this->getDate();
+            
+            $measureDate = new Zend_Measure_Time($date->getTimestamp());
+            $measureWork = new Zend_Measure_Time($workDate->getTimestamp());
+            $measureDate->sub($measureWork);
+            
+            $this->_experience =
+                (int) $measureDate->convertTo(Zend_Measure_Time::YEAR);
+        }
+        
+        return $this->_experience;
+    }
+
+    /**
+     *
+     * @param int $experience
+     * @return MaitreCorbeaux_Model_Activity_Profile
+     */
+    public function setExperience($experience)
+    {
+        $this->_experience = (int) $experience;
         return $this;
     }
 }

@@ -24,7 +24,9 @@ class MaitreCorbeaux_Model_ProfileTest extends PHPUnit_Framework_TestCase
                 array(
                     'date' => new Zend_Date(),
                     'birthDate' => new Zend_Date(),
-                    'age' => 123
+                    'firstWorkDate' => new Zend_Date(),
+                    'age' => 123,
+                    'experience' => 7
                 )
             )
         );
@@ -78,6 +80,24 @@ class MaitreCorbeaux_Model_ProfileTest extends PHPUnit_Framework_TestCase
                             ->getAge();
 
         $this->assertEquals(27, $age);
+    }
+
+    public function testGetExperienceReturnsNullIfNoFirstWorkDate()
+    {
+        $this->assertNull($this->_model->getFirstWorkDate());
+        $this->assertNull($this->_model->getExperience());
+    }
+    
+    public function testGetExperienceReturnsTimespanBetweenDateAndFirstWork()
+    {
+        $date = new Zend_Date('12-06-2012');
+        $firstWorkDate = new Zend_Date('13-06-2005');
+        
+        $experience = $this->_model->setDate($date)
+                                   ->setFirstWorkDate($firstWorkDate)
+                                   ->getExperience();
+        
+        $this->assertEquals(7, $experience);
     }
 
     /**

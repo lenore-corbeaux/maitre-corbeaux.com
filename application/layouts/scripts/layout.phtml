@@ -43,7 +43,7 @@
         <li>Lucas CORBEAUX</li>
         <li><?php echo $this->escape($this->profile->getAge()); ?> ans</li>
         <li>Concepteur-Développeur senior sur Angers</li>
-        <li>Plus de 5 ans d'expérience en développement Web</li>
+        <li>Plus de <?php echo $this->escape($this->profile->getExperience()); ?> ans d'expérience en développement Web</li>
         <li>
             <a href="http://www.zend.com/en/yellow-pages#show-ClientCandidateID=ZEND010169"
                title="Profil Zend Certified Engineer">Zend Certified Engineer PHP5 et Zend Framework</a>
