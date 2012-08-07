@@ -92,10 +92,17 @@ p.terminal:before {
     margin: 0 0 5px 0;
 }
 
+#block-right {
+    display: inline;
+    float: right;
+    margin-right: 45px;
+    width: 24%;
+}
+
 ul#infos-right {
-    margin: 5px 10px 5px 5px;
+    clear: both;
+    margin: 5px 5px 5px 5px;
     padding: 0;
-    width: 25%;
     list-style-type: none;
     float: left;
     text-align: justify;
@@ -117,6 +124,17 @@ ul#infos-right li.logos img {
 
 ul#infos-right li.logos a:hover {
     background-color: #ffffff;
+}
+
+#search form {
+    float: left;
+    margin: 5px 5px 5px 5px;
+}
+
+#search form fieldset {
+    border: none;
+    padding: 0;
+    margin: 0;
 }
 
 hr.separator {
@@ -222,15 +240,4 @@ dl.zend_form dd#copy-element label {
 dl.zend_form dd#copy-element {
     width: 100%;
     padding-left: 255px;
-}
-
-#search form {
-	float: left;
-	margin: 5px 10px 5px 5px;
-}
-
-#search form fieldset {
-	border: none;
-	padding: 0;
-	margin: 0;
 }

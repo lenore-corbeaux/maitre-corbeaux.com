@@ -31,39 +31,41 @@
     <div id="content">
         <?php echo $this->layout()->content; ?>
     </div>
-    <div id="search">
-        <form id="form-search" method="get" action="<?php echo $this->url(array('query' => ''), 'search', true); ?>">
-            <h3><?php echo $this->formLabel('query', 'Rechercher sur le site'); ?></h3>
-            <fieldset><?php echo $this->formText('query', $this->query); ?>
-            <?php echo $this->formSubmit('search-submit', 'Valider'); ?></fieldset>
-        </form>
+    <div id="block-right">
+	    <div id="search">
+	        <form id="form-search" method="get" action="<?php echo $this->url(array('query' => ''), 'search', true); ?>">
+	            <h3><?php echo $this->formLabel('query', 'Rechercher sur le site'); ?></h3>
+	            <fieldset><?php echo $this->formText('query', $this->query); ?>
+	            <?php echo $this->formSubmit('search-submit', 'Valider'); ?></fieldset>
+	        </form>
+	    </div>
+	    <ul id="infos-right">
+	        <li><h3>Informations sur le profil</h3></li>
+	        <li>Lucas CORBEAUX</li>
+	        <li><?php echo $this->escape($this->profile->getAge()); ?> ans</li>
+	        <li>Concepteur-Développeur senior sur Angers</li>
+	        <li>Plus de <?php echo $this->escape($this->profile->getExperience()); ?> ans d'expérience en développement Web</li>
+	        <li>
+	            <a href="http://www.zend.com/en/yellow-pages#show-ClientCandidateID=ZEND010169"
+	               title="Profil Zend Certified Engineer">Zend Certified Engineer PHP5 et Zend Framework</a>
+	        </li>
+	        <li>
+	            <strong>Disponibilité :</strong> En poste au sein de la société
+	            <a href="http://www.izeos.com" title="Portail de la société Izeos">Izeos</a>
+	        </li>
+	        <li class="logos">
+	            <a href="http://www.zend.com/en/yellow-pages#show-ClientCandidateID=ZEND010169"
+	               title="Profil Zend Certified Engineer">
+	                <img src="/images/logo-zce-php5.gif"
+	                     alt="Zend Certified Engineer PHP5"
+	                     title = "Zend Certified Engineer PHP5"/>
+	                <img src="/images/logo-zce-zend-framework.gif"
+	                     alt="Zend Certified Engineer Zend Framework"
+	                     title = "Zend Certified Engineer Zend Framework"/>
+	            </a>
+	        </li>
+	    </ul>
     </div>
-    <ul id="infos-right">
-        <li><h3>Informations sur le profil</h3></li>
-        <li>Lucas CORBEAUX</li>
-        <li><?php echo $this->escape($this->profile->getAge()); ?> ans</li>
-        <li>Concepteur-Développeur senior sur Angers</li>
-        <li>Plus de <?php echo $this->escape($this->profile->getExperience()); ?> ans d'expérience en développement Web</li>
-        <li>
-            <a href="http://www.zend.com/en/yellow-pages#show-ClientCandidateID=ZEND010169"
-               title="Profil Zend Certified Engineer">Zend Certified Engineer PHP5 et Zend Framework</a>
-        </li>
-        <li>
-            <strong>Disponibilité :</strong> En poste au sein de la société
-            <a href="http://www.izeos.com" title="Portail de la société Izeos">Izeos</a>
-        </li>
-        <li class="logos">
-            <a href="http://www.zend.com/en/yellow-pages#show-ClientCandidateID=ZEND010169"
-               title="Profil Zend Certified Engineer">
-                <img src="/images/logo-zce-php5.gif"
-                     alt="Zend Certified Engineer PHP5"
-                     title = "Zend Certified Engineer PHP5"/>
-                <img src="/images/logo-zce-zend-framework.gif"
-                     alt="Zend Certified Engineer Zend Framework"
-                     title = "Zend Certified Engineer Zend Framework"/>
-            </a>
-        </li>
-    </ul>
     <?php echo $this->inlineScript()->appendFile('/scripts/search.js'); ?>
 </body>
 </html>
