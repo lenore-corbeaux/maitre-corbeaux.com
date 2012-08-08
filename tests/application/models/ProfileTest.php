@@ -97,7 +97,7 @@ class MaitreCorbeaux_Model_ProfileTest extends PHPUnit_Framework_TestCase
                                    ->setFirstWorkDate($firstWorkDate)
                                    ->getExperience();
         
-        $this->assertEquals(7, $experience);
+        $this->assertEquals(6, $experience);
     }
 
     /**

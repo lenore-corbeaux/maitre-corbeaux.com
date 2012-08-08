@@ -119,14 +119,7 @@ extends MaitreCorbeaux_Model_AbstractModel
         $birthDate = $this->getBirthDate();
 
         if (null === $this->_age && null !== $birthDate) {
-            $date = $this->getDate();
-            
-            $measureDate = new Zend_Measure_Time($date->getTimestamp());
-            $measureBirth = new Zend_Measure_Time($birthDate->getTimestamp());
-            $measureDate->sub($measureBirth);
-            
-            $this->_age =
-                (int) $measureDate->convertTo(Zend_Measure_Time::YEAR);
+            $this->_age = $this->_timespan($birthDate, $this->getDate());
         }
 
         return $this->_age;
@@ -152,14 +145,7 @@ extends MaitreCorbeaux_Model_AbstractModel
         $workDate = $this->getFirstWorkDate();
         
         if (null === $this->_experience && null != $workDate) {
-            $date = $this->getDate();
-            
-            $measureDate = new Zend_Measure_Time($date->getTimestamp());
-            $measureWork = new Zend_Measure_Time($workDate->getTimestamp());
-            $measureDate->sub($measureWork);
-            
-            $this->_experience =
-                (int) $measureDate->convertTo(Zend_Measure_Time::YEAR);
+            $this->_experience = $this->_timespan($workDate, $this->getDate());
         }
         
         return $this->_experience;
@@ -174,5 +160,24 @@ extends MaitreCorbeaux_Model_AbstractModel
     {
         $this->_experience = (int) $experience;
         return $this;
+    }
+    
+    /**
+     * Returns the timespan (in year) between start date and end date.
+     * 
+     * Used to process age and experience calculation.
+     * 
+     * @param Zend_Date $startDate
+     * @param Zend_Date $endDate
+     * @return int
+     */
+    protected function _timespan(Zend_Date $startDate, Zend_Date $endDate)
+    {
+        $date = clone $endDate;
+        $date->subDay($startDate->getDay())
+             ->subMonth($startDate->getMonth())
+             ->subYear($startDate->getYear());
+            
+        return (int) $date->toString('yyyy');
     }
 }
