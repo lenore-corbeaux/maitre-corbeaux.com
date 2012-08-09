@@ -49,6 +49,18 @@ extends PHPUnit_Framework_TestCase
         );
     }
     
+    static public function itemProvider()
+    {
+        return array(
+            array(
+                null
+            ),
+            array(
+                new MaitreCorbeaux_Model_Activity_Item(array('id' => 123))
+            )
+        );
+    }
+    
     /**
      * Initialize the TestCase
      *
@@ -74,9 +86,57 @@ extends PHPUnit_Framework_TestCase
         $this->assertSame($expected, $actual);
     }
 
-    public function testImportActivityItem()
+    /**
+     * 
+     * @dataProvider itemProvider
+     */
+    public function testImportActivityItem(
+        MaitreCorbeaux_Model_Activity_Item $existingItem = null
+    )
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $mapper = $this->_service->getMapper();
+        $externalId = 'foo';
+        
+        $item = $this->getMock('MaitreCorbeaux_Model_Activity_Item');
+        $source = $this->getMock('MaitreCorbeaux_Model_Activity_Source');
+        
+        $item->expects($this->once())
+             ->method('getExternalId')
+             ->will($this->returnValue($externalId));
+             
+        $item->expects($this->once())
+             ->method('getSource')
+             ->will($this->returnValue($source));
+               
+        if (null !== $existingItem) {
+            $item->expects($this->once())
+                 ->method('setId')
+                 ->with($this->equalTo($existingItem->getId()));
+        }
+        
+        $service = $this->getMock(
+            'MaitreCorbeaux_Service_Activity_Item',
+            array('cleanImportData', 'getMapper')
+        );
+        
+        $service->expects($this->once())
+                ->method('getMapper')
+                ->will($this->returnValue($mapper));
+                
+        $service->expects($this->once())
+                ->method('cleanImportData')
+                ->with($item);
+                
+        $mapper->expects($this->once())
+               ->method('findByExternalId')
+               ->with($this->equalTo($externalId), $this->equalTo($source))
+               ->will($this->returnValue($existingItem));
+               
+        $mapper->expects($this->once())
+               ->method('save')
+               ->with($this->equalTo($item));
+               
+        $service->import($item);
     }
 
     public function testFetchLast()
