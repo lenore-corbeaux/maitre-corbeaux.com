@@ -20,13 +20,26 @@ extends PHPUnit_Framework_TestCase
      */
     public function setUp()
     {
-        parent::setUp();        
+        parent::setUp();
+        
+        $mapper = $this->getMock(
+            'MaitreCorbeaux_Model_Mapper_Activity_Source'
+        );
+                
         $this->_service = new MaitreCorbeaux_Service_Activity_Source();
+        $this->_service->setMapper($mapper);
     }
 
     public function testFetchAll()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $expected = new MaitreCorbeaux_Model_Collection_Activity_Source();
+        $mapper = $this->_service->getMapper();
+        $mapper->expects($this->once())
+               ->method('fetchAll')
+               ->will($this->returnValue($expected));
+               
+        $actual = $this->_service->fetchAll();
+        $this->assertSame($expected, $actual);
     }
 
     /**

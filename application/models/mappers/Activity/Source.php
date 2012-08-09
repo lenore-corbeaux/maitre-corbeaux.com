@@ -76,7 +76,7 @@ implements MaitreCorbeaux_Model_Mapper_Activity_SourceInterface
      * @return MaitreCorbeaux_Model_Collection_Activity_Source
      * @see MaitreCorbeaux_Model_Mapper_Activity_SourceInterface::fetchAll()
      */
-    public final function fetchAll()
+    public function fetchAll()
     {
         $rowset = $this->getDbTable()
                        ->fetchAll();

@@ -38,7 +38,7 @@ implements MaitreCorbeaux_Service_Activity_Import_ImportInterface
      * @return MaitreCorbeaux_Model_Collection_Activity_Item
      * @see MaitreCorbeaux_Service_Activity_Import_ImportInterface::import()
      */
-    final public function import()
+    public function import()
     {
         $feed = $this->getFeed();
         $collection = new MaitreCorbeaux_Model_Collection_Activity_Item();
