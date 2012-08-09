@@ -79,7 +79,7 @@ extends MaitreCorbeaux_Model_AbstractModel
      *
      * @return string
      */
-    public final function getSlug()
+    public function getSlug()
     {
         return $this->_slug;
     }
@@ -89,7 +89,7 @@ extends MaitreCorbeaux_Model_AbstractModel
      * @param string $value
      * @return MaitreCorbeaux_Model_Activity_Source
      */
-    public final function setSlug($value)
+    public function setSlug($value)
     {
         $this->_slug = (string) $value;
         return $this;
@@ -99,7 +99,7 @@ extends MaitreCorbeaux_Model_AbstractModel
      *
      * @return string
      */
-    public final function getLink()
+    public function getLink()
     {
         return $this->_link;
     }
@@ -109,7 +109,7 @@ extends MaitreCorbeaux_Model_AbstractModel
      * @param string $value
      * @return MaitreCorbeaux_Model_Activity_Source
      */
-    public final function setLink($value)
+    public function setLink($value)
     {
         $this->_link = (string) $value;
         return $this;

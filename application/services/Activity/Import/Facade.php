@@ -34,6 +34,18 @@ implements MaitreCorbeaux_Service_Activity_Import_ImportInterface
      * @var Zend_Cache_Core
      */
     protected $_cache;
+    
+    /**
+     * 
+     * @var MaitreCorbeaux_Service_Activity_Item
+     */
+    protected $_serviceItem;
+    
+    /**
+     * 
+     * @var MaitreCorbeaux_Service_Activity_Search
+     */
+    protected $_serviceSearch;
 
     /**
      * Log information in any logger available
@@ -62,8 +74,8 @@ implements MaitreCorbeaux_Service_Activity_Import_ImportInterface
      */
     public function import()
     {
-        $serviceItem = new MaitreCorbeaux_Service_Activity_Item();
-        $serviceSearch = new MaitreCorbeaux_Service_Activity_Search();
+        $serviceItem = $this->getServiceItem();
+        $serviceSearch = $this->getServiceSearch();
         $sources = $this->getSources();
 
         $this->_log('Cleaning activity cache');
@@ -142,6 +154,7 @@ implements MaitreCorbeaux_Service_Activity_Import_ImportInterface
     )
     {
         $this->_sources = $value;
+        return $this;
     }
 
     /**
@@ -193,6 +206,57 @@ implements MaitreCorbeaux_Service_Activity_Import_ImportInterface
     public function setCache(Zend_Cache_Core $value)
     {
         $this->_cache = $value;
+        return $this;
+    }
+
+    /**
+     *
+     * @return MaitreCorbeaux_Service_Activity_Item
+     */
+    public function getServiceItem()
+    {
+        if (null === $this->_serviceItem) {
+            $this->_serviceItem = new MaitreCorbeaux_Service_Activity_Item();
+        } 
+        
+        return $this->_serviceItem;
+    }
+
+    /**
+     *
+     * @param MaitreCorbeaux_Service_Activity_Item $value
+     * @return MaitreCorbeaux_Service_Activity_Import_Facade
+     */
+    public function setServiceItem(MaitreCorbeaux_Service_Activity_Item $value)
+    {
+        $this->_serviceItem = $value;
+        return $this;
+    }
+
+    /**
+     *
+     * @return MaitreCorbeaux_Service_Activity_Search
+     */
+    public function getServiceSearch()
+    {
+        if (null === $this->_serviceSearch) {
+            $this->_serviceSearch =
+                new MaitreCorbeaux_Service_Activity_Search();
+        } 
+        
+        return $this->_serviceSearch;
+    }
+
+    /**
+     *
+     * @param MaitreCorbeaux_Service_Activity_Search $value
+     * @return MaitreCorbeaux_Service_Activity_Import_Facade
+     */
+    public function setServiceSearch(
+        MaitreCorbeaux_Service_Activity_Search $value
+    )
+    {
+        $this->_serviceSearch = $value;
         return $this;
     }
 }
