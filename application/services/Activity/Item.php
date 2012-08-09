@@ -16,26 +16,35 @@ extends MaitreCorbeaux_Service_AbstractService
      * @param MaitreCorbeaux_Model_Activity_Item
      * @return void
      */
-    protected function _cleanImportData(MaitreCorbeaux_Model_Activity_Item $item)
+    public function cleanImportData(
+        MaitreCorbeaux_Model_Activity_Item $item
+    )
     {
-        $title = $item->getTitle();
-        $description = $item->getDescription();
-
-        // Item title may contains HTML entities
-        $title = html_entity_decode($title, ENT_QUOTES);
-        // Item description may contains HTML tags and entities
-        $description = strip_tags($description);
-        $description = html_entity_decode($description, ENT_QUOTES);
-        $description = trim($description);
+        $title = $this->_cleanData($item->getTitle());        
+        $description = $this->_cleanData($item->getDescription());
 
         $item->populate(array(
             'title' => $title,
             'description' => $description
         ));
     }
+    
+    /**
+     * Sanitize data.
+     * 
+     * Decode HTML entities, then strip tags and trim data.
+     * 
+     * @param string $data
+     * @return string
+     */
+    protected function _cleanData($data)
+    {
+        return trim(strip_tags(html_entity_decode($data, ENT_QUOTES)));
+    }
 
     /**
      * Import an ActivityItem
+     * 
      * Checks first if the externalId exists for this Activity Source
      *
      * @param MaitreCorbeaux_Model_Activity_Item $value
@@ -43,7 +52,7 @@ extends MaitreCorbeaux_Service_AbstractService
      */
     public function import(MaitreCorbeaux_Model_Activity_Item $item)
     {
-        $this->_cleanImportData($item);
+        $this->cleanImportData($item);
         
         $mapper = $this->getMapper();
         $existingItem = $mapper->findByExternalId(
@@ -61,6 +70,7 @@ extends MaitreCorbeaux_Service_AbstractService
 
     /**
      * Returns the n last Activity Items
+     * 
      * We use bootstrap to get the number of items to return
      *
      * @return MaitreCorbeaux_Model_Collection_Activity_Item

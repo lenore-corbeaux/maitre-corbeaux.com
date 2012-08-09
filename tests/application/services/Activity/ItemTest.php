@@ -13,6 +13,42 @@ extends PHPUnit_Framework_TestCase
      */
     protected $_service;
     
+    static public function dataProvider()
+    {
+        return array(
+            array(
+                array(
+                    'title' => '<h1>Title</h1>',
+                    'description' => '<p>Description</p>'
+                ),
+                array(
+                    'title' => 'Title',
+                    'description' => 'Description'
+                )
+            ),
+            array(
+                array(
+                    'title' => '&lt;h1&gt;Title&lt;/h1&gt;',
+                    'description' => '&lt;p&gt;Description&lt;/p&gt;'
+                ),
+                array(
+                    'title' => 'Title',
+                    'description' => 'Description'
+                )
+            ),
+            array(
+                array(
+                    'title' => ' Title ',
+                    'description' => ' Description '
+                ),
+                array(
+                    'title' => 'Title',
+                    'description' => 'Description'
+                )
+            ),
+        );
+    }
+    
     /**
      * Initialize the TestCase
      *
@@ -24,6 +60,18 @@ extends PHPUnit_Framework_TestCase
         $mapper = $this->getMock('MaitreCorbeaux_Model_Mapper_Activity_Item');
         $this->_service = new MaitreCorbeaux_Service_Activity_Item();
         $this->_service->setMapper($mapper);
+    }
+    
+    /**
+     * 
+     * @dataProvider dataProvider
+     */
+    public function testCleanImportData($actual, $expected)
+    {
+        $model = new MaitreCorbeaux_Model_Activity_Item($actual);
+        $this->_service->cleanImportData($model);
+        $actual = array_intersect_key($model->toArray(), $expected);
+        $this->assertSame($expected, $actual);
     }
 
     public function testImportActivityItem()
