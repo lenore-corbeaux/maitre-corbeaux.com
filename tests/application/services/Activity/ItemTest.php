@@ -139,19 +139,87 @@ extends PHPUnit_Framework_TestCase
         $service->import($item);
     }
 
+    /**
+     * Prepare bootstrap configuration.
+     * 
+     * @param mixed $value The option value.
+     * @return void
+     */
+    protected function _prepareBootstrap($value)
+    {
+        $bootstrap = $this->getMock(
+            'Zend_Application_Bootstrap_BootstrapAbstract',
+            array(), array(), '', false
+        );
+        
+        $bootstrap->expects($this->once())
+                  ->method('getOption')
+                  ->with($this->equalTo('activityItem'))
+                  ->will($this->returnValue($value));
+                  
+        $this->_service->setBootstrap($bootstrap);
+    }
+    
+    /**
+     * Prepare mapper for fetch and paginate calls.
+     * 
+     * @param string $method The method name.
+     * @param array $params The parameters given to method.
+     * @return MaitreCorbeaux_Model_Collection_Activity_Item
+     */
+    protected function _prepareMapper($method, array $params)
+    {
+        $collection = new MaitreCorbeaux_Model_Collection_Activity_Item();
+        
+        $mapper = $this->_service->getMapper();
+        $method = $mapper->expects($this->once())
+                         ->method($method);
+        
+        call_user_func_array(array($method, 'with'), $params);
+                         
+        $method->will($this->returnValue($collection));
+        return $collection;
+    }
+
     public function testFetchLast()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $nbLast = 123;
+        
+        $this->_prepareBootstrap(array('nbLast' => $nbLast));
+        $expected = $this->_prepareMapper('fetchLast', array($nbLast));
+        
+        $actual = $this->_service->fetchLast();
+        $this->assertSame($expected, $actual);
     }
 
     public function testPaginateAll()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $page = 123;
+        $nbPaginator = 456;
+        
+        $this->_prepareBootstrap(array('nbPaginator' => $nbPaginator));
+        
+        $expected = $this->_prepareMapper(
+            'paginateAll', array($page, $nbPaginator)
+        );
+        
+        $actual = $this->_service->paginateAll($page);
+        $this->assertSame($expected, $actual);
     }
 
     public function testPaginateAllIn()
     {
-        $this->markTestIncomplete('Not yet implemented');
+        $ids = array(1, 2, 3);
+        $page = 123;
+        $nbPaginator = 456;
+        
+        $this->_prepareBootstrap(array('nbPaginator' => $nbPaginator));
+        $expected = $this->_prepareMapper(
+            'paginateAllIn', array($ids, $page, $nbPaginator)
+        );
+        
+        $actual = $this->_service->paginateAllIn($ids, $page);
+        $this->assertSame($expected, $actual);
     }
     
     public function testFetchAllCallMapperFetchAll()
