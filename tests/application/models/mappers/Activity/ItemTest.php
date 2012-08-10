@@ -295,6 +295,16 @@ class MaitreCorbeaux_Model_Mapper_Activity_ItemTest extends DatabaseTestCase
 
         $this->assertEquals(0, count($collection));
     }
+    
+    public function testActivitySourceMapperCanBeGetAndSet()
+    {
+        $mapper = $this->getMock(
+            'MaitreCorbeaux_Model_Mapper_Activity_Source'
+        );
+        
+        $this->_mapper->setActivitySourceMapper($mapper);
+        $this->assertSame($mapper, $this->_mapper->getActivitySourceMapper());
+    }
 
     /**
      * TestCase tear down
