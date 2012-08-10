@@ -7,6 +7,7 @@ define('APPLICATION_ENV', 'testing');
 set_include_path(implode(PATH_SEPARATOR, array(
     realpath(BASE_PATH . '/library'),
     TEST_PATH,
+    TEST_PATH . '/library',
     get_include_path(),
 )));
 
