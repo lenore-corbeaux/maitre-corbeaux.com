@@ -36,7 +36,7 @@ implements MaitreCorbeaux_Service_Activity_Import_ImportInterface
     {
         $collection = new MaitreCorbeaux_Model_Collection_Activity_Item();
         $twitter = $this->getServiceTwitter();
-        $user = $twitter->account->verifyCredentials();
+        $user = $twitter->accountVerifyCredentials();
 
         if (null === $user) {
             throw new MaitreCorbeaux_Service_Activity_Import_Exception(
@@ -51,10 +51,10 @@ implements MaitreCorbeaux_Service_Activity_Import_ImportInterface
             'include_rts' => 1
         );
 
-        $statuses = $twitter->status->userTimeline($options);
+        $statuses = $twitter->statusUserTimeline($options);
 
         foreach ($statuses as $status) {
-            $model = $this->_createActivityItem($status);
+            $model = $this->createActivityItem($status);
             $collection->add($model);
         }
 
@@ -67,7 +67,7 @@ implements MaitreCorbeaux_Service_Activity_Import_ImportInterface
      * @param SimpleXmlElement $status
      * @return MaitreCorbeaux_Model_Activity_Item
      */
-    protected function _createActivityItem(SimpleXmlElement $status)
+    public function createActivityItem(SimpleXmlElement $status)
     {
         $link = 'http://twitter.com/lucascorbeaux/statuses/' . $status->id;
 
