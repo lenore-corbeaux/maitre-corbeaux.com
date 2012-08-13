@@ -31,6 +31,52 @@ class MaitreCorbeaux_Model_ProfileTest extends PHPUnit_Framework_TestCase
             )
         );
     }
+    
+    /**
+     * Provides Zend_Date and expected age for age calculation.
+     * 
+     * @return array
+     */
+    public static function ageProvider()
+    {
+        return array(
+            array(
+                '11-08-2011', 27
+            ),
+            array(
+                '12-08-2011', 28
+            ),
+            array(
+                '11-08-2012', 28
+            ),
+            array(
+                '12-08-2012', 29
+            )
+        );
+    }
+    
+    /**
+     * Provides Zend_Date and expected age for age calculation.
+     * 
+     * @return array
+     */
+    public static function experienceProvider()
+    {
+        return array(
+            array(
+                '12-06-2011', 5
+            ),
+            array(
+                '13-06-2011', 6
+            ),
+            array(
+                '12-06-2012', 6
+            ),
+            array(
+                '13-06-2012', 7
+            )
+        );
+    }
 
     /**
      * Initialize the TestCase
@@ -70,16 +116,22 @@ class MaitreCorbeaux_Model_ProfileTest extends PHPUnit_Framework_TestCase
         $this->assertNull($this->_model->getAge());
     }
 
-    public function testGetAgeReturnsTimespanBetweenDateAndBirthDate()
+    /**
+     * 
+     * @dataProvider ageProvider
+     */
+    public function testGetAgeReturnsTimespanBetweenDateAndBirthDate(
+        $date, $expected
+    )
     {
-        $date = new Zend_Date('11-08-2011');
+        $date = new Zend_Date($date);
         $birthDate = new Zend_Date('12-08-1983');
 
         $age = $this->_model->setDate($date)
                             ->setBirthDate($birthDate)
                             ->getAge();
 
-        $this->assertEquals(27, $age);
+        $this->assertEquals($expected, $age);
     }
 
     public function testGetExperienceReturnsNullIfNoFirstWorkDate()
@@ -88,16 +140,22 @@ class MaitreCorbeaux_Model_ProfileTest extends PHPUnit_Framework_TestCase
         $this->assertNull($this->_model->getExperience());
     }
     
-    public function testGetExperienceReturnsTimespanBetweenDateAndFirstWork()
+    /**
+     * 
+     * @dataProvider experienceProvider
+     */
+    public function testGetExperienceReturnsTimespanBetweenDateAndFirstWork(
+        $date, $expected
+    )
     {
-        $date = new Zend_Date('12-06-2012');
+        $date = new Zend_Date($date);
         $firstWorkDate = new Zend_Date('13-06-2005');
         
         $experience = $this->_model->setDate($date)
                                    ->setFirstWorkDate($firstWorkDate)
                                    ->getExperience();
         
-        $this->assertEquals(6, $experience);
+        $this->assertEquals($expected, $experience);
     }
 
     /**

@@ -174,6 +174,9 @@ extends MaitreCorbeaux_Model_AbstractModel
     protected function _timespan(Zend_Date $startDate, Zend_Date $endDate)
     {
         $date = clone $endDate;
+        $date->addDay(1)
+             ->addMonth(1);
+             
         $date->subDay($startDate->getDay())
              ->subMonth($startDate->getMonth())
              ->subYear($startDate->getYear());
